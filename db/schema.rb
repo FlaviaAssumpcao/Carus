@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_112020) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_153426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "donations", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "user_id", null: false
+    t.bigint "nonprofit_id", null: false
+    t.bigint "goods_category_id", null: false
+    t.bigint "time_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goods_category_id"], name: "index_donations_on_goods_category_id"
+    t.index ["nonprofit_id"], name: "index_donations_on_nonprofit_id"
+    t.index ["time_category_id"], name: "index_donations_on_time_category_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
 
   create_table "goods_categories", force: :cascade do |t|
     t.string "name"
@@ -73,6 +87,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_112020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "donations", "goods_categories"
+  add_foreign_key "donations", "nonprofits"
+  add_foreign_key "donations", "time_categories"
+  add_foreign_key "donations", "users"
   add_foreign_key "goods_categorizations", "goods_categories"
   add_foreign_key "goods_categorizations", "nonprofits"
   add_foreign_key "time_categorizations", "nonprofits"
