@@ -40,15 +40,16 @@ end
 
 puts "Creating nonprofits..."
 ventos_ativos = {
-  name: "Associacao Ventos Ativos"
+  name: "Associacao Ventos Ativos",
   brief_description: "A nonprofit organization aiming the protection of the youth through sports, dance and art",
   address: "Alto do Varejao, Lisboa",
   phone: "212 324 543",
   city: "Lisboa",
   full_description: "Through sports, dance and art the Associacao Portuguesa Pro-Juventude provide activities, workshop and regular training through the selection of commited young kids",
-  min_time:,
-  max_time: ,
+  min_time: 10,
+  max_time: 12
 }
+
 barriga_cheia = {
   name: "Associacao Barriga Cheia",
   brief_description: "A nonprofit organization collecting and distributing food for the people in need",
@@ -56,17 +57,19 @@ barriga_cheia = {
   phone: "212 100 200",
   city: "Lisboa",
   full_description: "The Associacao Barriga Cheia collects, organizes and distributes food on different locations on a weekly basis for the people in need. ",
-  min_time:,
-  max_time: ,
+  min_time: 14,
+  max_time: 17
 }
+
 pro_juventude  = {
   name: "Grupo Pro-juventude",
   brief_description: "A nonprofit organization - entertainment",
   address: "Alto do Varejao, Lisboa",
   phone: "212 324 543",
   city: "Lisboa",
-  full_description: "Through sports, dance and art the Associacao Portuguesa Pro-Juventude provide activities, workshop and regular training through the selection of commited young kids",
+  full_description: "Through sports, dance and art the Associacao Portuguesa Pro-Juventude provide activities, workshop and regular training through the selection of commited young kids"
 }
+
 longevidade = {
   name: "Associacao de Apoio a Longevidade",
   brief_description: "A nonprofit organization looking after the older adults",
@@ -75,12 +78,12 @@ longevidade = {
   city: "Lisboa",
   full_description: "The Associacao de Apoio a Longevidade invest all its effort on the wellbeing of its guests. It provides basic care and entertainment to the older adults",
   min_time: 10,
-  max_time: 14,
+  max_time: 14
 }
 
 
 [ventos_ativos, barriga_cheia, pro_juventude, longevidade].each do |attributes|
-  nonprofit = Nonprofit.create(attributes)
+  nonprofit = Nonprofit.create!(attributes)
   # file = URI.open(attributes[:url])
   # experience.photo.attach(io: file, filename: "experience.jpg", content_type: "image/jpg")
   # experience.save
@@ -91,35 +94,35 @@ end
 
 puts "Creating goods categories..."
 goods_category_food = {
-  name: "Food",
+  name: "Food"
 }
 
 goods_category_entertainment = {
-  name: "Entertainment",
+  name: "Entertainment"
 }
 
 goods_category_household = {
-  name: "Household",
+  name: "Household"
 }
 
 goods_category_sports = {
-  name: "Sports",
+  name: "Sports"
 }
 
 goods_category_clothing = {
-  name: "Clothing",
+  name: "Clothing"
 }
 
 goods_category_tecnology = {
-  name: "Tecnology",
+  name: "Tecnology"
 }
 
 goods_category_babieskids = {
-  name: "Babies & Kids",
+  name: "Babies & Kids"
 }
 
 [goods_category_food, goods_category_entertainment, goods_category_household, goods_category_sports, goods_category_clothing, goods_category_tecnology, goods_category_babieskids].each do |attributes|
-  goods_category = GoodsCategory.create(attributes)
+  goods_category = GoodsCategory.create!(attributes)
   puts "Created #{goods_category.name}"
 end
 
@@ -127,31 +130,31 @@ end
 
 puts "Creating time categories..."
 time_category_chidren = {
-  name: "Children & Youth",
+  name: "Children & Youth"
 }
 
 time_category_elderly = {
-  name: "Elderly",
+  name: "Elderly"
 }
 
 time_category_animals = {
-  name: "Animals",
+  name: "Animals"
 }
 
 time_category_disability = {
-  name: "People with disability",
+  name: "People with disability"
 }
 
 time_category_unsheltered = {
-  name: "Unsheltered",
+  name: "Unsheltered"
 }
 
 time_category_environment = {
-  name: "Environment",
+  name: "Environment"
 }
 
 [time_category_chidren, time_category_elderly, time_category_animals, time_category_disability, time_category_unsheltered, time_category_environment].each do |attributes|
-  time_category = TimeCategory.create(attributes)
+  time_category = TimeCategory.create!(attributes)
   puts "Created #{time_category.name}"
 end
 
