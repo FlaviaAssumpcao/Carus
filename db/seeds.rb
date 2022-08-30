@@ -8,6 +8,11 @@
 puts "Cleaning database..."
 Nonprofit.destroy_all
 User.destroy_all
+TimeCategory.destroy_all
+GoodsCategory.destroy_all
+GoodsCategorization.destroy_all
+TimeCategorization.destroy_all
+
 
 puts "Creating users..."
 user_1 = {
