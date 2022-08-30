@@ -15,7 +15,6 @@ class NonprofitsController < ApplicationController
     @nonprofits = @nonprofits.where(goods_category_id: params[:time_category_id]) if params[:time_category_id]
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
     @time_categories = TimeCategory.all
-
   end
 
   def show
