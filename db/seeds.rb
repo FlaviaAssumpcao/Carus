@@ -14,6 +14,7 @@ GoodsCategorization.destroy_all
 TimeCategorization.destroy_all
 
 
+
 puts "Creating users..."
 user_1 = {
   first_name: "Paul",
