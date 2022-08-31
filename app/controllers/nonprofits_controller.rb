@@ -28,7 +28,6 @@ class NonprofitsController < ApplicationController
   end
 
   def show
-
   end
 
   private

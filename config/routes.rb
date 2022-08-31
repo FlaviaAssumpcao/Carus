@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donations/new'
   devise_for :users
   root to: "pages#home"
 
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
       get :goods
       get :volunteer
     end
+    resources :donations, only: [:new, :create]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
