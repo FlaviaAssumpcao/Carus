@@ -1,0 +1,24 @@
+.btn-big {
+  background-color: #62C4B7;
+  color: white;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.13em;
+  border-radius: 40px;
+  padding: 13px 30px 13px 30px;
+  margin-right: 5em;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
+  text-decoration: none;
+  &:hover{
+    box-shadow: none;
+    color: white;
+    background-color: $main-green;
+    border: 0px;
+    margin-top: 4px;
+    margin-bottom: -4px;
+    text-decoration: none;
+    background-color: $star-blue;
+  }
+}
