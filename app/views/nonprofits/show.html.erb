@@ -1,0 +1,9 @@
+
+<ul>
+  <% @nonprofit.donations.each do |donation| %>
+    <li><%= donation.user.first_name %> | <%= donation.date %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
+<%= link_to 'Back', nonprofit_path %>
