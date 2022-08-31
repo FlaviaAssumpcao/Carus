@@ -1,0 +1,26 @@
+<h1>Book a meetup timeslot with <strong><%= @nonprofit.name %></strong></h1>
+
+<%= simple_form_for [@nonprofit, @donation] do |f| %>
+    <div class="d-flex justify-content-around">
+      <div>
+        <%= f.input :date, as: :date, html5: true %>
+      </div>
+
+      <div>
+        <%= f.input :time, as: :radio_buttons,
+          collection: (@nonprofit.min_time..@nonprofit.max_time).map { |time| ['%0.2d:00' % time, time] }  %>
+      </div>
+
+      <div>
+        <%= f.input :goods_category, collection: @nonprofit.goods_categories %>
+      </div>
+
+      <div>
+        <%= f.input :time_category, collection: @nonprofit.time_categories %>
+      </div>
+    </div>
+
+    <div>
+      <%= f.submit "CONFIRM", class: "btn btn-primary" %>
+    </div>
+<% end %>

@@ -82,10 +82,10 @@ puts "Created #{pro_juventude.name}"
 longevidade = Nonprofit.new(
   name: "Associação de Apoio à Longevidade",
   brief_description: "A nonprofit organization looking after the older adults",
-  address: "Avenida Madame Curie, 18, Lisboa",
-  phone: "216 000 222",
+  address: "Avenida dos Aliados, 18, Porto",
+  phone: "226 000 222",
   email: "info@longevidade.pt",
-  city: "Lisboa",
+  city: "Porto",
   full_description: "Associação de Apoio à Longevidade invests all its effort on the wellbeing of its guests. It provides basic care and entertainment to the older adults",
   min_time: 10,
   max_time: 14
