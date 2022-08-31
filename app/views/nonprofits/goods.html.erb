@@ -24,11 +24,15 @@
   <div>
     <% @nonprofits.each do |nonprofit| %>
     <div>
-      <h5><%= nonprofit.name %></h5>
-      <h6><%= nonprofit.city %></h6>
-      <p><%= nonprofit.brief_description %></p>
+      <%= link_to nonprofit_path(nonprofit) do %>
+        <h5><strong><%= nonprofit.name %></strong></h5>
+        <h6><%= nonprofit.city %></h6>
+        <p><%= nonprofit.brief_description %></p>
+      <% end %>
     </div>
     <% end %>
   </div>
+
+
 
 </div>
