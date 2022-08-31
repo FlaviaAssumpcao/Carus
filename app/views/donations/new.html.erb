@@ -12,11 +12,11 @@
       </div>
 
       <div>
-        <%= f.input :goods_category, collection: @nonprofit.goods_categories %>
+        <%= f.association :goods_category, collection: @nonprofit.goods_categories %>
       </div>
 
       <div>
-        <%= f.input :time_category, collection: @nonprofit.time_categories %>
+        <%= f.association :time_category, collection: @nonprofit.time_categories %>
       </div>
     </div>
 

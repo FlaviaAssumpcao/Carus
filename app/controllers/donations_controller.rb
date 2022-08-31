@@ -9,10 +9,12 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     @donation.nonprofit = @nonprofit
     @donation.user = current_user
-    @donation.date = @donation.date + @donation.time.to_i.hours
-    @donation.save!
 
-    redirect_to nonprofit_path(@nonprofit)
+    if @donation.save
+      redirect_to nonprofit_path(@nonprofit), notice: "Your meetup was successfully scheduled"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
 private
