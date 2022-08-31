@@ -1,5 +1,5 @@
 class Nonprofit < ApplicationRecord
-  has_many :donations
+  has_many :donations, dependent: :destroy
   has_many :time_categorizations
   has_many :goods_categorizations
   has_many :time_categories, through: :time_categorizations
