@@ -1,38 +1,37 @@
 <div class=container>
+  <div>
+    <ul>
+      <li><%= @nonprofit.name %></li>
+      <li><%= @nonprofit.city %></li>
+      <li><%= @nonprofit.address %></li>
+      <li><%= @nonprofit.email %></li>
+      <li><%= @nonprofit.phone %></li>
+      <li><%= @nonprofit.full_description %></li>
+    </ul>
 
-    <div>
-      <ul>
-          <li><%= @nonprofit.name %></li>
-          <li><%= @nonprofit.city %></li>
-          <li><%= @nonprofit.address %></li>
-          <li><%= @nonprofit.email %></li>
-          <li><%= @nonprofit.phone %></li>
-          <li><%= @nonprofit.full_description %></li>
-      </ul>
-
-      <% if @nonprofit.goods_categories != nil %>
-        <% @goods_categories.each do |goods_category| %>
-              <li>
-                <%= goods_category.name%>
-              </li>
-            <% end %>
+    <% if @nonprofit.goods_categories != nil %>
+      <% @goods_categories.each do |goods_category| %>
+        <li>
+          <%= goods_category.name%>
+        </li>
       <% end %>
+    <% end %>
 
-      <% if @nonprofit.time_categories != nil %>
-        <% @time_categories.each do |time_category| %>
-                <li>
-                  <%= time_category.name%>
-                </li>
-              <% end %>
+    <% if @nonprofit.time_categories != nil %>
+      <% @time_categories.each do |time_category| %>
+        <li>
+          <%= time_category.name%>
+        </li>
       <% end %>
+    <% end %>
 
-      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
-      <%= link_to 'Back', nonprofit_path %>
-    </div>
+    <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
+    <%= link_to 'Back', nonprofit_path %>
+  </div>
 
-    <div>
-      <% @nonprofit.photos.each do | photo | %>
-        <%= cl_image_tag photo.key %>
-      <% end %>
-    </div>
+  <div>
+    <% @nonprofit.photos.each do | photo | %>
+      <%= carus_image(photo) %>
+    <% end %>
+  </div>
 </div>

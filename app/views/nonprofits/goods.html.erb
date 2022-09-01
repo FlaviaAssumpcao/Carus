@@ -25,7 +25,7 @@
     <% @nonprofits.each do |nonprofit| %>
     <div class="card-product">
       <%= link_to nonprofit_path(nonprofit) do %>
-        <%= cl_image_tag nonprofit.logo.key %>
+        <%= carus_image(nonprofit.logo) %>
         <div class="card-product-infos">
           <h5><strong><%= nonprofit.name %></strong></h5>
           <h6><%= nonprofit.city %></h6>
