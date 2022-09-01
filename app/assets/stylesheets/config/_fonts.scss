@@ -5,6 +5,53 @@
 $body-font: 'Poppins', sans-serif;
 $headers-font: 'Lora', serif;
 
+h1 {
+  font-family: $headers-font;
+  font-size: 48.83;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: $headers-font;
+  font-size: 39.06;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: $headers-font;
+  font-size: 31.25;
+  font-weight: 500;
+}
+
+h4 {
+  font-family: $headers-font;
+  font-size: 25;
+  font-weight: 500;
+}
+
+h5 {
+  font-family: $headers-font;
+  font-size: 20;
+  font-weight: 500;
+}
+
+h6 {
+  font-family: $headers-font;
+  font-size: 16;
+  font-weight: 500;
+}
+
+p {
+  font-family: $body-font;
+  font-size: 16;
+  font-weight: 400;
+  line-height: 150%;
+}
+.p-card {
+  font-size: 14;
+}
+
+
 // >>>> set defeult fonts lora>open sans>serif poppins>garamond,sans-serif <<<<
 
 // To use a font file (.woff) uncomment following lines
