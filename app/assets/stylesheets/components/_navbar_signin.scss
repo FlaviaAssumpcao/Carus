@@ -3,25 +3,18 @@
 .navbar-carus {
   justify-content: space-between;
   background: #62C4B7;
-  height :38px;
-}
-.navbar-brand img {
-  width: 40px;
-  height:10px;
-  border-radius: 50%;
 }
 
 .navbar-carus .navbar-collapse {
   flex-grow: 0;
-  height:30px ;
 }
 
-.navbar-brand {
-  width: 46px;
-  height: 10px;
+.navbar-carus .navbar-brand img {
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
+  
 }
-
 
   .nav-item.signin {
     background-color:#62C4B7;
