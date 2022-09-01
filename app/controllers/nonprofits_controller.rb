@@ -28,6 +28,12 @@ class NonprofitsController < ApplicationController
   end
 
   def show
+    if @nonprofit.goods_categories != nil
+      @goods_categories = @nonprofit.goods_categories
+    end
+    if @nonprofit.time_categories != nil
+      @time_categories = @nonprofit.time_categories
+    end
   end
 
   private
