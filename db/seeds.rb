@@ -338,8 +338,20 @@ time_category_multiple = TimeCategory.create!(
 
 
 puts "Creating goods categorizations..."
+GoodsCategorization.create!(nonprofit: ventos_ativos, oodgs_category: goods_category_sports)
 GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_entertainment)
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_multiple)
+GoodsCategorization.create!(nonprofit: ventos_ativos, time_category: time_category_chidren)
 GoodsCategorization.create!(nonprofit: pro_juventude, goods_category: goods_category_sports)
+GoodsCategorization.create!(nonprofit: pro_juventude, time_category: time_category_chidren)
+GoodsCategorization.create!(nonprofit: empowered_people, time_category: time_category_disability)
+GoodsCategorization.create!(nonprofit: empowered_people, goods_category: goods_category_tecnology)
+GoodsCategorization.create!(nonprofit: longevidade, time_category: time_category_elderly)
+GoodsCategorization.create!(nonprofit: pet_protection, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: pet_protection, time_category: time_category_animals)
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_entertainment)
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_entertainment)
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_entertainment)
 
 
 puts "Creating time categorizations..."

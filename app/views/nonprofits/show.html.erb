@@ -10,7 +10,9 @@
     </ul>
 
     <% if @nonprofit.goods_categories != nil %>
+
       <% @goods_categories.each do |goods_category| %>
+      <li><h5>Accepts:</h5></li>
         <li>
           <%= goods_category.name%>
         </li>
@@ -18,7 +20,9 @@
     <% end %>
 
     <% if @nonprofit.time_categories != nil %>
+
       <% @time_categories.each do |time_category| %>
+      <li><h5>Accepts volunteering in the following causes:</h5></li>
         <li>
           <%= time_category.name%>
         </li>
