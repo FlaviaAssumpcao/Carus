@@ -1,12 +1,36 @@
+<div class=container>
 
-<ul>
-  <% @nonprofit.donations.each do |donation| %>
-    <li><%= donation.user.first_name %> | <%= donation.date %></li>
+  <%# <% <% @nonprofit.photos.each do |photo| %>
+    <%#= cl_image_tag photo.key %>
+  <%# end %>
+
+  <ul>
+      <li><%= @nonprofit.name %></li>
+      <li><%= @nonprofit.city %></li>
+      <li><%= @nonprofit.address %></li>
+      <li><%= @nonprofit.email %></li>
+      <li><%= @nonprofit.phone %></li>
+      <li><%= @nonprofit.full_description %></li>
+  </ul>
+
+  <% if @nonprofit.goods_categories != nil %>
+    <% @goods_categories.each do |goods_category| %>
+          <li>
+            <%= goods_category.name%>
+          </li>
+        <% end %>
   <% end %>
-</ul>
 
-<%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
-<%= link_to 'Back', nonprofit_path %>
+  <% if @nonprofit.time_categories != nil %>
+    <% @time_categories.each do |time_category| %>
+            <li>
+              <%= time_category.name%>
+            </li>
+          <% end %>
+  <% end %>
 
 
-        
+  <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
+  <%= link_to 'Back', nonprofit_path %>
+
+</div>
