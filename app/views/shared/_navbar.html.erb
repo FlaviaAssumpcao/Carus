@@ -1,11 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-carus">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "" %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= cl_image_tag("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662040016/Carus/logo_carus.png_tkgyyu.png") %>
     <% end %>
-    <%= link_to "#", class: "navbar-brand-text me-auto" do %>
-       <% "Carus" %>
-      <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -13,9 +10,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-<%#%cl_image_path current_user.photo.key,  to replace image_tag after seeds done%>
+            <%#%cl_image_path current_user.photo.key,  to replace image_tag after seeds done%>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Account",  class: "dropdown-item" %>
@@ -26,7 +24,6 @@
           <li class="nav-item">
             <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
           </li>
-        <% end %>
       </ul>
     </div>
   </div>
