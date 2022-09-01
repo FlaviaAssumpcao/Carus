@@ -3,32 +3,33 @@
 .navbar-carus {
   justify-content: space-between;
   background: #62C4B7;
+  height :38px;
+}
+.navbar-brand img {
+  width: 40px;
+  height:10px;
+  border-radius: 50%;
 }
 
 .navbar-carus .navbar-collapse {
   flex-grow: 0;
+  height:30px ;
 }
 
-.navbar-carus .navbar-brand img {
+.navbar-brand {
   width: 46px;
-  height: 46px;
+  height: 10px;
   border-radius: 50%;
 }
 
-.navbar-brand-text {
-color: white;
-font-size: xx-large;
-text-decoration: none;
-font-weight: 650;
-}
-.navbar-brand-text:hover {
-  color: #6d6d6d;
-}
 
-.nav-item {
-  background-color: #e8ffc1;
-  border-radius: 40px;
-  width: 90px;
-  text-align: center;
-
-}
+  .nav-item.signin {
+    background-color:#62C4B7;
+    border-radius: 40px;
+    width: 70px;
+    text-decoration: none;
+  }
+  .navbar-collapse{
+    width: 10px;
+    height: fit-content;
+  }

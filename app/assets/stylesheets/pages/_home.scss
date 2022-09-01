@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+body {
+  background-color: white;
+}
 
 .banner {
   position: relative;
@@ -41,4 +44,41 @@
 
 .h2-homepage {
   color: $star-blue;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-homepage {
+  border: none;
+  background-color: white;
+  height: 100px;
+  width: 222px;
+  display: flex;
+  padding: 2px;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.landing-card-text {
+  color: $star-blue;
+  justify-self:baseline;
+  text-align: center;
+}
+
+.number {
+box-sizing: border-box;
+background: #FFFFFF;
+border: 0.5px solid #0278AE;
+width: 23px;
+height: 23px;
+text-align: center;
+padding: 0%;
+border-radius: 50px;
+margin-top: 2px;
+margin-bottom: 2px;
 }
