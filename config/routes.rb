@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :donations, only: [:new, :create]
   end
 
+  get "my_account", to: "pages#my_account"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
