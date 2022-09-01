@@ -6,7 +6,7 @@
   <br>&emsp;:latin
   <br>&emsp;: dear, beloved, precious</p>
 
-  <img src="https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662038852/Carus/baloons_dpuzlq.png", class="banner__baloons">
+  <%= image_tag('baloons.svg', class:'banner-baloons') %>
 
   <h1 class="h1-homepage">Connecting people<br>with nonprofit organizations</h1>
 
@@ -18,32 +18,39 @@
   <%= link_to "DONATE GOODS", goods_nonprofits_path, class:'btn btn-big' %>
 </div>
 
-<h2 class="h2-homepage">How does it work?</h2>
+<h2 class="h2-homepage my-5">How does it work?</h2>
 
 <%# Font: Poppins - Size: 22 - Light %>
 <%# need to include the numbers %>
-<div class="flex-container">
-  <div class="card card-homepage flex-item">
-    <img src="https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662038852/Carus/card2_dm61b7.png" style="width:60%">
-    <div class="container number" id="1">
-      <p class="landing-card-text">1</p>
+<div class="container">
+  <div class="row my-5">
+    <div class="col-4 text-center">
+      <%= image_tag('c1.svg', class: 'img-fluids', height: 200) %>
+
+      <div class="container number mt-4">
+        <p class="landing-card-text">1</p>
+      </div>
+
+      <p class="landing-card-text">Choose how to help</p>
     </div>
-    <p class="landing-card-text">Choose how to help</p>
-  </div>
-  <div class="card card-homepage flex-item">
-    <img src="https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662038852/Carus/card3_l8eukb.png" style="width:80%">
-    <div class="container number" id="2">
-      <p class="landing-card-text">2</p>
+
+    <div class="col-4 text-center">
+      <%= image_tag('c3.svg', class: 'img-fluids', height: 200) %>
+
+      <div class="container number mt-4">
+        <p class="landing-card-text">2</p>
+      </div>
+      <p class="landing-card-text">Pick a nonprofit</p>
     </div>
-    <p class="landing-card-text">Pick a nonprofit</p>
-  </div>
-  <div class="card card-homepage flex-item">
-    <img src="https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662039066/Carus/logo_carus.png_oecany.png" style="width:60%">
-    <div class="container number" id="3">
-      <p class="landing-card-text">3</p>
+
+    <div class="col-4 text-center">
+      <%= image_tag('c2.svg', class: 'img-fluids', height: 200) %>
+
+      <div class="container number mt-4">
+        <p class="landing-card-text">3</p>
+      </div>
+      <p class="landing-card-text">Donate or volunteer</p>
     </div>
-    <p class="landing-card-text">Donate or volunteer</p>
   </div>
 </div>
-
 <%# Footer %>

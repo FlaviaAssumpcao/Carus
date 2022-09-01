@@ -23,3 +23,30 @@
     background-color: $star-blue;
   }
 }
+
+.btn-signin {
+  background-color: $tea-green;
+  color: $light-gray;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 2mm;
+  border-radius: 40px;
+  padding: 1px 30px 1px 30px;
+  margin-right: 5em;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
+  text-decoration: none;
+  transition: all 0.3s;
+  width: 10em;
+  &:hover{
+    box-shadow: none;
+    color: $main-green;
+    background-color: $tea-green;
+    border: 0px;
+    margin-top: 4px;
+    margin-bottom: -4px;
+    text-decoration: none;
+  }
+}
