@@ -159,7 +159,7 @@ unsheltered = Nonprofit.new(
   brief_description: "A nonprofit association looking after people without shelter.",
   address: "Alto do Varejao, Lisboa",
   phone: "232 122 233",
-  email: "info@reuserecicle.pt",
+  email: "info@unsheltered.pt",
   city: "Lisboa",
   full_description: "The Unsheltered Association is a non-profit that collects and distributes food, personal hygiene products and clothing for people permanently or temporarily unsheltered. ",
   min_time: 9,
