@@ -4,6 +4,7 @@ class Nonprofit < ApplicationRecord
   has_many :goods_categorizations
   has_many :time_categories, through: :time_categorizations
   has_many :goods_categories, through: :goods_categorizations
+  has_many_attached :photos
 
   validates :name, :brief_description, :full_description, :address, :phone, :city, :email, :min_time, :max_time, presence: true
   validates :name, :email, :phone, uniqueness: true
