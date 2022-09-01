@@ -25,6 +25,7 @@
     <% @nonprofits.each do |nonprofit| %>
     <div>
       <%= link_to nonprofit_path(nonprofit) do %>
+        <%#= cl_image_path nonprofit.photo.key %>
         <h5><strong><%= nonprofit.name %></strong></h5>
         <h6><%= nonprofit.city %></h6>
         <p><%= nonprofit.brief_description %></p>
