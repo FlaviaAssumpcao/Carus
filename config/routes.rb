@@ -8,7 +8,15 @@ Rails.application.routes.draw do
       get :goods
       get :volunteer
     end
+
     resources :donations, only: [:new, :create]
+
+  end
+
+  resources :donations, only: [] do
+    member do
+      get :confirmation
+    end
   end
 
   get "my_account", to: "pages#my_account"

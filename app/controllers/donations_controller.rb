@@ -11,10 +11,15 @@ class DonationsController < ApplicationController
     @donation.user = current_user
 
     if @donation.save
-      redirect_to nonprofit_path(@nonprofit), notice: "Your meetup was successfully scheduled"
+      redirect_to confirmation_donation_path(@donation), notice: "Your meetup was successfully scheduled"
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def confirmation
+   @donation = Donation.find(params[:id])
+    #@nonprofit = @donation.nonprofit
   end
 
 private
