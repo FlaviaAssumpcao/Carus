@@ -13,5 +13,5 @@ class Nonprofit < ApplicationRecord
   validates :min_time, comparison: { less_than: :max_time }
 
   #geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # after_validation :geocode, if: :will_save_change_to_address?
 end
