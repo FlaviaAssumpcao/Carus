@@ -1,41 +1,40 @@
 <div class="container">
-
-<%= link_to 'Clean all filters', goods_nonprofits_path %>
-
-  <div>
-    <ul>
-      <% @goods_categories.each do |goods_category| %>
-        <li>
-          <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div>
-    <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-      <%= f.input :city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
-      <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-  <%# create partial for the cards display since it is the same in goods and volunteer  %>
-  <div>
-    <% @nonprofits.each do |nonprofit| %>
-    <div class="card-product">
-      <%= link_to nonprofit_path(nonprofit) do %>
-        <%= carus_image(nonprofit.logo) %>
-        <div class="card-product-infos">
-          <h5><strong><%= nonprofit.name %></strong></h5>
-          <h6><%= nonprofit.city %></h6>
-          <p><%= nonprofit.brief_description %></p>
-        </div>
-      <% end %>
+  <div class="flex-container">
+    <div class="btns flex-container flex-item col-2">
+        <ul>
+          <%= link_to 'Clean all filters', goods_nonprofits_path %>
+          <% @goods_categories.each do |goods_category| %>
+            <li class="btn btn-category flex-item">
+              <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]) %>
+            </li>
+          <% end %>
+        </ul>
     </div>
-    <% end %>
+
+    <div style="felx-grow: 1">
+      <div class="serach-form" style="width: 40%; margin-left: auto;">
+        <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
+          <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
+          <%= f.submit "Search", class: "btn btn-search" %>
+        <% end %>
+      </div>
+
+      <%# create partial for the cards display since it is the same in goods and volunteer  %>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; margin: 20px;">
+        <% @nonprofits.each do |nonprofit| %>
+        <div class="card-product" style="margin: 10px;">
+          <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
+            <%= carus_image(nonprofit.logo) %>
+            <div class="card-product-infos">
+              <h5><strong><%= nonprofit.name %></strong></h5>
+              <h6><%= nonprofit.city %></h6>
+              <p><%= nonprofit.brief_description %></p>
+            </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-
 </div>

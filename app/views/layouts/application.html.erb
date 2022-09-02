@@ -19,9 +19,11 @@
       <%= render "shared/navbar" %>
     <% end %>
       <%= render "shared/flashes" %>
+
     <div class="page-content">
       <%= yield %>
     </div>
+
     <%= render "shared/footer" %>
 
     <% if notice.present? %>
