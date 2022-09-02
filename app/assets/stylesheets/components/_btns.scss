@@ -92,14 +92,15 @@
   border: 0px;
   text-decoration: none;
   transition: all 0.3s;
+  letter-spacing: 3px;
   &:hover{
     box-shadow: none;
-    color: $main-green;
-    background-color: white;
+    color: white;
+    background-color: $main-green-lighter;
     border: 0px;
     margin-top: 4px;
     margin-bottom: -4px;
     text-decoration: none;
-
+    letter-spacing: 2px;
   }
 }
