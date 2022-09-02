@@ -26,7 +26,22 @@ class NonprofitsController < ApplicationController
   end
 
   def show
+    @nonprofits = Nonprofit.all
+    @markers = @nonprofits.geocoded.map do | nonprofit |
+      {
+        lat: nonprofit.latitude,
+        lng: nonprofit.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
+      }
+    end
+
+    if @nonprofit.goods_categories.present?
       @goods_categories = @nonprofit.goods_categories
+    end
+    if @nonprofit.time_categories.present?
+
+      @goods_categories = @nonprofit.goods_categories
+
       @time_categories = @nonprofit.time_categories
   end
 
@@ -35,6 +50,5 @@ class NonprofitsController < ApplicationController
   def set_nonprofit
     @nonprofit = Nonprofit.find(params[:id])
   end
-
 
 end
