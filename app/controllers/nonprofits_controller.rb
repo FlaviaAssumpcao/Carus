@@ -38,11 +38,13 @@ class NonprofitsController < ApplicationController
     if @nonprofit.goods_categories.present?
       @goods_categories = @nonprofit.goods_categories
     end
+
     if @nonprofit.time_categories.present?
 
       @goods_categories = @nonprofit.goods_categories
 
       @time_categories = @nonprofit.time_categories
+    end
   end
 
   private
