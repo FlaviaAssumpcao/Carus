@@ -137,7 +137,7 @@ reuse_recicle = Nonprofit.new(
   phone: "226 121 233",
   email: "info@reuserecicle.pt",
   city: "Lisboa",
-  full_description: "The Reuse & Recicle Group is a non-profit focused on bringing waste reduction awareness to the community through free workshop for adults and kids. We have a special program for primary and secondary school.",
+  full_description: "The Reuse & Recicle Group is a non-profit focused on bringing waste reduction awareness to the community through free workshop for adults and kids. We have a special program for primary and secondary school and also a second hand shop.",
   min_time: 9,
   max_time: 16
 )
@@ -338,14 +338,47 @@ time_category_multiple = TimeCategory.create!(
 
 
 puts "Creating goods categorizations..."
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_sports)
 GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_entertainment)
+GoodsCategorization.create!(nonprofit: ventos_ativos, goods_category: goods_category_multiple)
 GoodsCategorization.create!(nonprofit: pro_juventude, goods_category: goods_category_sports)
+GoodsCategorization.create!(nonprofit: empowered_people, goods_category: goods_category_tecnology)
+GoodsCategorization.create!(nonprofit: pet_protection, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: reuse_recicle, goods_category: goods_category_household)
+GoodsCategorization.create!(nonprofit: reuse_recicle, goods_category: goods_category_entertainment)
+GoodsCategorization.create!(nonprofit: reuse_recicle, goods_category: goods_category_multiple)
+GoodsCategorization.create!(nonprofit: unsheltered, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: unsheltered, goods_category: goods_category_clothing)
+GoodsCategorization.create!(nonprofit: unsheltered, goods_category: goods_category_multiple)
+GoodsCategorization.create!(nonprofit: barriga_cheia, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_clothing)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_household)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_babieskids)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_sports)
+GoodsCategorization.create!(nonprofit: abrigo_santa, goods_category: goods_category_multiple)
+GoodsCategorization.create!(nonprofit: better_days, goods_category: goods_category_food)
+GoodsCategorization.create!(nonprofit: better_days, goods_category: goods_category_clothing)
+GoodsCategorization.create!(nonprofit: better_days, goods_category: goods_category_multiple)
 
 
 puts "Creating time categorizations..."
-
 TimeCategorization.create!(nonprofit: longevidade, time_category: time_category_elderly)
 TimeCategorization.create!(nonprofit: barriga_cheia, time_category: time_category_unsheltered)
+TimeCategorization.create!(nonprofit: barriga_cheia, time_category: time_category_chidren)
+TimeCategorization.create!(nonprofit: barriga_cheia, time_category: time_category_elderly)
+TimeCategorization.create!(nonprofit: ventos_ativos, time_category: time_category_chidren)
+TimeCategorization.create!(nonprofit: abrigo_santa, time_category: time_category_chidren)
+TimeCategorization.create!(nonprofit: abrigo_santa, time_category: time_category_unsheltered)
+TimeCategorization.create!(nonprofit: abrigo_santa, time_category: time_category_multiple)
+TimeCategorization.create!(nonprofit: better_days, time_category: time_category_unsheltered)
+TimeCategorization.create!(nonprofit: unsheltered, time_category: time_category_unsheltered)
+TimeCategorization.create!(nonprofit: reuse_recicle, time_category: time_category_chidren)
+TimeCategorization.create!(nonprofit: reuse_recicle, time_category: time_category_environment)
+TimeCategorization.create!(nonprofit: reuse_recicle, time_category: time_category_multiple)
+TimeCategorization.create!(nonprofit: pro_juventude, time_category: time_category_chidren)
+TimeCategorization.create!(nonprofit: empowered_people, time_category: time_category_disability)
+TimeCategorization.create!(nonprofit: pet_protection, time_category: time_category_animals)
 
 
 puts "Finished!"
