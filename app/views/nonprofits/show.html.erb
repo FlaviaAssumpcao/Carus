@@ -1,33 +1,47 @@
-<div class=container>
+<div class="container">
+  <div class="row">
 
+    <div class="col-sm-6">
+        <%= carus_image(@nonprofit.logo) %>
+        <h3><strong><%= @nonprofit.name %></strong></h3>
+        <h4><%= @nonprofit.city %></h4>
+        <p><%= @nonprofit.email %></p>
+        <p><%= @nonprofit.phone %></p>
+        <p><%= @nonprofit.full_description %></p>
+        <p><%= @nonprofit.address %></p>
 
-  <ul>
-      <li><%= @nonprofit.name %></li>
-      <li><%= @nonprofit.city %></li>
-      <li><%= @nonprofit.address %></li>
-      <li><%= @nonprofit.email %></li>
-      <li><%= @nonprofit.phone %></li>
-      <li><%= @nonprofit.full_description %></li>
-  </ul>
+      <br>
 
-  <% if @nonprofit.goods_categories != nil %>
-    <% @goods_categories.each do |goods_category| %>
+      <% if @nonprofit.goods_categories.present? %>
+        <% @goods_categories.each do |goods_category| %>
+        <p><strong>Accepts:</strong>
           <li>
             <%= goods_category.name%>
           </li>
         <% end %>
-  <% end %>
+      <% end %>
 
-  <% if @nonprofit.time_categories != nil %>
-    <% @time_categories.each do |time_category| %>
-            <li>
-              <%= time_category.name%>
-            </li>
-          <% end %>
-  <% end %>
+      <% if @nonprofit.time_categories.present? %>
+        <% @time_categories.each do |time_category| %>
+          <li>
+            <%= time_category.name%>
+          li>
+        <% end %>
+      <% end %>
 
+      <br>
 
-  <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
-  <%= link_to 'Back', nonprofit_path %>
+      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
+      <%= link_to 'Back', nonprofit_path %>
+    </div>
 
+    <div class="col-sm-6">
+        <div id="map" style="height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+    </div>
+
+  </div>
 </div>
