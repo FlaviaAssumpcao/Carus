@@ -1,11 +1,15 @@
 <div class=container>
 
+<br>
+
   <div class="row">
     <div>
       <div class="col-sm-6">
         <div class="logo">
           <%= carus_image(@nonprofit.logo) %>
         </div>
+
+<br>
 
         <div>
           <h3><%= @nonprofit.name %></h3>
@@ -36,8 +40,15 @@
 
     <br>
 
-      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
-      <%= link_to 'Back', nonprofit_path %>
+      <div class="btn-big">
+        <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
+      </div>
+
+<br>
+
+      <div class="btn-big">
+        <%= link_to 'Back', nonprofit_path %>
+      </div>
 
     </div>
 
