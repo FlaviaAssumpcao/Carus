@@ -11,7 +11,7 @@ class NonprofitsController < ApplicationController
     end
 
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
-    @goods_categories = GoodsCategory.all
+    @goods_categories = GoodsCategory.where.not(name: "Multiple categories")
   end
 
   def volunteer
@@ -24,7 +24,7 @@ class NonprofitsController < ApplicationController
     end
 
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
-    @time_categories = TimeCategory.all
+    @time_categories = TimeCategory.where.not(name: "Multiple categories")
   end
 
   def show
