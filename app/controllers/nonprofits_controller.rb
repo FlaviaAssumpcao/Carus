@@ -1,7 +1,18 @@
 class NonprofitsController < ApplicationController
    before_action :set_nonprofit, only: [:show]
 
-   def goods
+  def index
+    @nonprofits = Nonprofit.all
+    @markers = @nonprofits.geocoded.map do | nonprofit |
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
+      }
+    end
+  end
+
+  def goods
     @nonprofits = Nonprofit.joins(:goods_categorizations)
         .where.not(goods_categorizations: { goods_category_id: nil})
 
@@ -28,10 +39,10 @@ class NonprofitsController < ApplicationController
   end
 
   def show
-    if @nonprofit.goods_categories != nil
+    if @nonprofit.goods_categories.present?
       @goods_categories = @nonprofit.goods_categories
     end
-    if @nonprofit.time_categories != nil
+    if @nonprofit.time_categories.present?
       @time_categories = @nonprofit.time_categories
     end
   end

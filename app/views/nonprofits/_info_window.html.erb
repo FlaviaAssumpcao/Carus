@@ -1,0 +1,11 @@
+<div class="map-search-box">
+  <h3><%= link_to nonprofit.name, nonprofit_path(nonprofit) %></h3>
+  <br>
+  <p><%= nonprofit.address %></p>
+  <p><%= nonprofit.email %></p>
+  <p><%= nonprofit.phone %></p>
+  <p><%= nonprofit.brief_description %></p>
+  <div class="btn-map">
+    <a href="<%= new_nonprofit_donation_path(nonprofit) %>" class="btn btn-submit">Donate</a>
+  </div>
+</div>
