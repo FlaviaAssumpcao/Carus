@@ -1,7 +1,7 @@
 class NonprofitsController < ApplicationController
-   before_action :set_nonprofit, only: [:show]
+  before_action :set_nonprofit, only: [:show]
 
-   def goods
+  def goods
     @nonprofits = Nonprofit.joins(:goods_categorizations)
         .where.not(goods_categorizations: { goods_category_id: nil})
 
