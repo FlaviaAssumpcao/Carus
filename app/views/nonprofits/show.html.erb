@@ -40,14 +40,8 @@
 
     <br>
 
-      <div class="btn-big">
-        <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit) %>
-      </div>
-
-<br>
-
-      <div class="btn-big">
-        <%= link_to 'Back', nonprofit_path %>
+      <div>
+        <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big" %>
       </div>
 
     </div>
