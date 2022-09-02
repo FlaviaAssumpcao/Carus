@@ -9,7 +9,7 @@
       <li><%= @nonprofit.full_description %></li>
     </ul>
 
-    <% if @nonprofit.goods_categories != nil %>
+    <% if @nonprofit.goods_categories.present? %>
 
       <% @goods_categories.each do |goods_category| %>
       <li><h5>Accepts:</h5></li>
@@ -19,7 +19,7 @@
       <% end %>
     <% end %>
 
-    <% if @nonprofit.time_categories != nil %>
+    <% if @nonprofit.time_categories.present? %>
 
       <% @time_categories.each do |time_category| %>
       <li><h5>Accepts volunteering in the following causes:</h5></li>
