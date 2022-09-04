@@ -1,51 +1,98 @@
-<div class=container>
+<div class="container d-flex" style="background-color: #e8ffc1d2; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1210px;">
 
 <br>
 
-  <div class="row">
+
+  <div class="cards col-sm-6" style="width: 40rem; padding: 50px; border: none;">
     <div>
-      <div class="col-sm-6">
-        <div class="logo">
-          <%= carus_image(@nonprofit.logo) %>
-        </div>
-
-<br>
-
-        <div>
-          <h3><%= @nonprofit.name %></h3>
-          <h5><%= @nonprofit.city %></h5>
-          <p><%= @nonprofit.email %></p>
-          <p><%= @nonprofit.phone %></p>
-          <p><%= @nonprofit.full_description %></p>
-          <p><%= @nonprofit.address %></p>
-        </div>
+      <div class="logo" style="margin-bottom: 20px;">
+        <%= carus_image(@nonprofit.logo) %>
       </div>
 
-      <p><strong>Accepts:</strong></p>
-      <% if @nonprofit.goods_categories.present? %>
-        <% @goods_categories.each do |goods_category| %>
+    <br>
+
+      <div style="margin-bottom: 30px">
+        <h3><strong><%= @nonprofit.name %></strong></h3>
+        <h5><%= @nonprofit.city %></h5>
+        <p><%= @nonprofit.email %></p>
+        <p><%= @nonprofit.phone %></p>
+        <p><%= @nonprofit.full_description %></p>
+        <p><%= @nonprofit.address %></p>
+      </div>
+    </div>
+
+    <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 20px; border: none;">
+        <ul>
+          <p><strong>Accepts the following goods types:</strong></p>
+          <% if @nonprofit.goods_categories.present? %>
+            <% @goods_categories.each do |goods_category| %>
+                  <li>
+                    <%= goods_category.name%>
+                  </li>
+                <% end %>
+          <% end %>
+        </ul>
+    </div>
+
+    <br>
+
+    <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 20px; border: none;">
+        <ul>
+          <p><strong>Accepts VOLUNTEER for:</strong></p>
+          <% if @nonprofit.time_categories.present? %>
+            <% @time_categories.each do |time_category| %>
               <li>
-                <%= goods_category.name%>
+                <%= time_category.name%>
               </li>
             <% end %>
-      <% end %>
-
-      <% if @nonprofit.time_categories.present? %>
-        <% @time_categories.each do |time_category| %>
-                <li>
-                  <%= time_category.name%>
-                </li>
-              <% end %>
-      <% end %>
+          <% end %>
+          </ul>
+    </div>
 
     <br>
     <div>
       <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big" %>
     </div>
+  </div>
 
-<br>
+  <br>
 
-   
+  <div class="col-sm-6" style="width: 40rem; border: none;">
+    <div>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+          <% @nonprofits.each do |nonprofit| %>
+              <% nonprofit.photos.each do |photo|%>
+
+                  <div class="carousel-item active">
+                    <%= cl_image_tag photo.key, height: 300, width: 500, crop: :fill %>
+                  </div>
+              <%end%>
+            <%end%>
+        </div>
+      </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <br>
+
+    <div id="map" style="width: 500px; height: 400px; margin-top: 20px"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
   </div>
 </div>
