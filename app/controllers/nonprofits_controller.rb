@@ -3,11 +3,11 @@ class NonprofitsController < ApplicationController
 
   def goods
     @nonprofits = Nonprofit.joins(:goods_categorizations)
-        .where.not(goods_categorizations: { goods_category_id: nil})
-        if params[:goods_category].present?
-          @nonprofits = @nonprofits.joins(:goods_categorizations)
-          .where(goods_categorizations: { goods_category_id: params[:goods_category] })
-        end
+    .where.not(goods_categorizations: { goods_category_id: nil})
+    if params[:goods_category].present?
+      @nonprofits = @nonprofits.joins(:goods_categorizations)
+      .where(goods_categorizations: { goods_category_id: params[:goods_category] })
+    end
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
     @goods_categories = GoodsCategory.where.not(name: "Multiple categories")
   end
@@ -27,12 +27,13 @@ class NonprofitsController < ApplicationController
 
   def show
     #  @nonprofits = Nonprofit.all
-    #  @markers = @nonprofits.geocoded.map do | nonprofit |
-    #    {
-    #      lat: nonprofit.latitude,
-    #      lng: nonprofit.longitude,
-    #      info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
-    #    }
+    #  @markers = @nonprofits.geocoded.map do |nonprofit|
+    @markers = [
+       {
+         lat: @nonprofit.latitude,
+         lng: @nonprofit.longitude,
+         info_window: render_to_string(partial: "info_window", locals: {nonprofit: @nonprofit})
+       }]
     #  end
 
     if @nonprofit.goods_categories.present?
@@ -40,9 +41,6 @@ class NonprofitsController < ApplicationController
     end
 
     if @nonprofit.time_categories.present?
-
-      @goods_categories = @nonprofit.goods_categories
-
       @time_categories = @nonprofit.time_categories
     end
   end
