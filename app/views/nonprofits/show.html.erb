@@ -7,6 +7,10 @@
       </div>
     <br>
 
+    <%= link_to favorites_path(nonprofit_id: @nonprofit.id), data: { turbo_method: :post } do %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
+
       <div>
         <div class="heading-show" style="margin-bottom: 25px;">
           <h3><strong><%= @nonprofit.name %></strong></h3>
@@ -20,6 +24,7 @@
         <div class="description">
           <p><%= @nonprofit.full_description %></p>
         </div>
+
       </div>
     </div>
 

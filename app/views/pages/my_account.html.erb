@@ -1,6 +1,9 @@
 
 
-<%#= image_tag "/images/user.jpg", class: "avatar-bordered"; %>
+<%= image_tag "/assets/user.jpg", class: "avatar-bordered" %>
+
+<p>Member since <%= current_user.created_at.strftime("%Y") %></p>
+
 
 <div>
   <h3>Upcoming donations</h3>
@@ -20,6 +23,23 @@
         <br>
     <% end %>
   </ul>
+</div>
+
+<div>
+<h3>Favourite nonprofits</h3>
+  <% @favorites.each do |favorite| %>
+    <%= link_to nonprofit_path(favorite.nonprofit) do %>
+      <div class="card-product">
+      </div>
+      <div>
+        <%= carus_image(favorite.nonprofit.logo) %>
+      </div>
+      <div class="card-product-infos">
+        <h5><strong><%= favorite.nonprofit.name %></strong></h5>
+        <h6><%= favorite.nonprofit.city %></h6>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 <div>
