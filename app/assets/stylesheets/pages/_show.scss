@@ -1,12 +1,19 @@
 
 #map {
-  height: 50vh;
+  height: 100vh;
   position: sticky;
   top: 0;
   position: relative;
 }
 
+.logo > img {
+  border-radius: 8px;
+}
 
+.carousel-item img {
+  width: 500px;
+  height: 400px;
+}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
