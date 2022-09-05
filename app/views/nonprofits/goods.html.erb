@@ -11,8 +11,8 @@
         </ul>
     </div>
 
-    <div style="felx-grow: 1">
-      <div class="serach-form" style="width: 40%; margin-left: auto;">
+    <div style="flex-grow: 1">
+      <div class="search-form" style="width: 40%; margin-left: auto;">
         <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
           <%= f.input :city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
           <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
