@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   end
 
   def my_account
+    @donations = Donation.all
+
+ 
   end
 
 end
