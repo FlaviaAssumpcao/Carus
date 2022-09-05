@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
+}
+
+.col-1 {
+  background-color: purple;
+}
+
+.col-2 {
+  background-color: pink;
+}
