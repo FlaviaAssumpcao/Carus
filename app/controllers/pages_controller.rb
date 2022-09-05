@@ -5,9 +5,9 @@ class PagesController < ApplicationController
   end
 
   def my_account
-    @donations = Donation.all
+    @donations = Donation.where(user: current_user)
 
- 
+    @favorites = Favorite.where(user: current_user)
   end
 
 end
