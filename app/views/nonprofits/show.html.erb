@@ -21,21 +21,28 @@
         </div>
       </div>
 
-      <p><strong>Accepts:</strong></p>
+
       <% if @nonprofit.goods_categories.present? %>
+        <p><strong>Accepts goods from the following categories:</strong></p>
         <% @goods_categories.each do |goods_category| %>
-              <li>
-                <%= goods_category.name%>
-              </li>
-            <% end %>
+          <% if goods_category.name != 'Multiple categories' %>
+            <li>
+              <%= goods_category.name%>
+            </li>
+          <% end %>
+        <% end %>
       <% end %>
+      <br>
 
       <% if @nonprofit.time_categories.present? %>
+        <p><strong>Has volunteering programs in the following areas:</strong></p>
         <% @time_categories.each do |time_category| %>
-                <li>
-                  <%= time_category.name%>
-                </li>
-              <% end %>
+          <% if time_category.name != 'Multiple categories' %>
+            <li>
+              <%= time_category.name%>
+            </li>
+          <% end %>
+        <% end %>
       <% end %>
 
     <br>
@@ -45,7 +52,7 @@
 
 <br>
 
-   
+
 
   </div>
 </div>

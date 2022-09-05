@@ -22,7 +22,7 @@
 
       <%# create partial for the cards display since it is the same in goods and volunteer  %>
       <div style="display: grid; grid-template-columns: 1fr 1fr; margin: 20px;">
-        <% @nonprofits.each do |nonprofit| %>
+        <% @nonprofits.uniq.each do |nonprofit| %>
         <div class="card-product" style="margin: 10px;">
           <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
             <%= carus_image(nonprofit.logo) %>
