@@ -40,9 +40,6 @@ class NonprofitsController < ApplicationController
     end
 
     if @nonprofit.time_categories.present?
-
-      @goods_categories = @nonprofit.goods_categories
-
       @time_categories = @nonprofit.time_categories
     end
   end

@@ -1,14 +1,10 @@
 <div class="container d-flex" style="background-color: #e8ffc1d2; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1210px;">
-
 <br>
-
-
   <div class="cards col-sm-6" style="width: 40rem; padding: 50px; border: none;">
     <div>
       <div class="logo" style="margin-bottom: 20px;">
         <%= carus_image(@nonprofit.logo) %>
       </div>
-
     <br>
 
       <div style="margin-bottom: 30px">
@@ -22,44 +18,42 @@
     </div>
 
     <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 20px; border: none;">
-        <ul>
-          <p><strong>Accepts the following goods types:</strong></p>
-          <% if @nonprofit.goods_categories.present? %>
-            <% @goods_categories.each do |goods_category| %>
-                  <li>
-                    <%= goods_category.name%>
-                  </li>
-                <% end %>
+      <ul>
+        <% if @nonprofit.goods_categories.present? %>
+        <p><strong>Accepts the following types of goods:</strong></p>
+          <% @goods_categories.each do |goods_category| %>
+            <% if goods_category.name != 'Multiple categories' %>
+              <li>
+                <%= goods_category.name%>
+              </li>
+            <% end %>
           <% end %>
-        </ul>
+        <% end %>
+      </ul>
     </div>
-
     <br>
-
     <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 20px; border: none;">
-        <ul>
-          <p><strong>Accepts VOLUNTEER for:</strong></p>
-          <% if @nonprofit.time_categories.present? %>
-            <% @time_categories.each do |time_category| %>
+      <ul>
+        <% if @nonprofit.time_categories.present? %>
+        <p><strong>Has volunteering programs in the following areas:</strong></p>
+          <% @time_categories.each do |time_category| %>
+            <% if time_category.name != 'Multiple categories' %>
               <li>
                 <%= time_category.name%>
               </li>
             <% end %>
           <% end %>
-          </ul>
+        <% end %>
+      </ul>
     </div>
-
     <br>
     <div>
       <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big" %>
     </div>
   </div>
-
   <br>
-
   <div class="col-sm-6" style="width: 40rem; border: none;">
     <div>
-
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -85,14 +79,11 @@
           <span class="sr-only">Next</span>
         </a>
     </div>
-
     <br>
-
     <div id="map" style="width: 500px; height: 400px; margin-top: 20px"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
   </div>
 </div>
