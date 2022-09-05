@@ -4,6 +4,7 @@ class Nonprofit < ApplicationRecord
   has_many :goods_categorizations
   has_many :time_categories, through: :time_categorizations
   has_many :goods_categories, through: :goods_categorizations
+  has_many :favorites
   has_many_attached :photos
   has_one_attached :logo
 
@@ -12,6 +13,6 @@ class Nonprofit < ApplicationRecord
 
   validates :min_time, comparison: { less_than: :max_time }
 
-  #geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

@@ -1,1 +1,43 @@
-<h1>My Account</h1>
+
+
+<%#= image_tag "/images/user.jpg", class: "avatar-bordered"; %>
+
+<div>
+  <h3>Upcoming donations</h3>
+  <ul>
+    <% @donations.each do |donation| %>
+      <% if donation.date >= Date.today %>
+        <li><%= donation.nonprofit.name %></li>
+        <li><%= donation.nonprofit.address %></li>
+          <% if donation.goods_category.present? %>
+            <li>You will donate <strong><%= donation.goods_category.name %></strong> goods</li>
+          <% end %>
+          <% if donation.time_category.present? %>
+            <li>You will meet to discuss your volunteering program: <strong><%= donation.time_category.name %></strong></li>
+          <% end %>
+        <li><%= donation.date.to_formatted_s(:short) %></li>
+      <% end %>
+        <br>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Previous donations</h3>
+  <ul>
+    <% @donations.each do |donation| %>
+      <% if donation.date < DateTime.now %>
+        <li>You helped <strong><%= donation.nonprofit.name %></strong> with
+          <% if donation.goods_category.present? %>
+            <strong><%= donation.goods_category.name %></strong> goods
+          <% end %>
+          <% if donation.time_category.present? %>
+            volunteering work (<strong><%= donation.time_category.name %></strong>)
+          <% end %>
+          on <%= donation.date.to_formatted_s(:short) %>.
+        </li>
+      <% end %>
+      <br>
+    <% end %>
+  </ul>
+</div>
