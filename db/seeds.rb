@@ -38,7 +38,7 @@ ventos_ativos = Nonprofit.new(
   name: "Associação Ventos Ativos",
   brief_description: "Protection of the youth through sports, dance and art.",
   address: "Rua Camilo Castelo Branco, 12, Évora",
-  phone: "212 324 543",
+  phone: "266 324 543",
   email: "info@ventosativos.pt",
   city: "Évora",
   full_description: "Through sports, dance and art the Associação Ventos Ativos is a non-profit that provides activities, workshop and regular training through the selection of commited young kids.",
@@ -60,13 +60,13 @@ puts "Created #{ventos_ativos.name}"
 
 
 empowered_people = Nonprofit.new(
-  name: "Fundacao Empowered People",
+  name: "Fundação Empowered People",
   brief_description: "A nonprofit organization improving work opportunities for people with disability.",
-  address: " Estrada da Chainha, 36, Évora",
-  phone: "212 300 577",
+  address: "Estrada da Chainha, 36, Évora",
+  phone: "266 300 577",
   email: "info@empoweredpeople.pt",
   city: "Évora",
-  full_description: "The Fundacao Empowered People is a nonprofit that provides workshops and professional trainings to people with disability to improve their work opportunities and self-esteem. Online options available.",
+  full_description: "The Fundação Empowered People is a nonprofit that provides workshops and professional trainings to people with disability to improve their work opportunities and self-esteem. Online options available.",
   min_time: 10,
   max_time: 14
 )
@@ -134,7 +134,7 @@ reuse_recicle = Nonprofit.new(
   name: "Reuse & Recicle Awareness Group",
   brief_description: "We provide waste reduction awareness programs to the community.",
   address: "Bairro Almeida Araújo, 10, Queluz",
-  phone: "226 121 233",
+  phone: "216 121 233",
   email: "info@reuserecicle.pt",
   city: "Lisboa",
   full_description: "The Reuse & Recicle Group is a non-profit focused on bringing waste reduction awareness to the community through free workshop for adults and kids. We have a special program for primary and secondary school and also a second hand shop.",
@@ -157,8 +157,8 @@ puts "Created #{reuse_recicle.name}"
 unsheltered = Nonprofit.new(
   name: "Unsheltered Association",
   brief_description: "A nonprofit association looking after people without shelter.",
-  address: "Alto do Varejao, Lisboa",
-  phone: "232 122 233",
+  address: "Alto do Varejão, Lisboa",
+  phone: "212 122 233",
   email: "info@unsheltered.pt",
   city: "Lisboa",
   full_description: "The Unsheltered Association is a non-profit that collects and distributes food, personal hygiene products and clothing for people permanently or temporarily unsheltered. ",
@@ -181,7 +181,7 @@ puts "Created #{unsheltered.name}"
 pro_juventude  = Nonprofit.new(
   name: "Grupo Pro-juventude",
   brief_description: "Activities, workshop and regular training for young kids.",
-  address: "Alto do Varejao, Lisboa",
+  address: "Rua do Teixeira, 15, Lisboa",
   phone: "212 324 000",
   email: "info@projuventude.pt",
   city: "Lisboa",
@@ -228,9 +228,9 @@ abrigo_santa = Nonprofit.new(
   name: "Abrigo Santa Sofia",
   brief_description: "We collect food and goods for families in need.",
   address: "Rua dos Tordos, 102, Albufeira",
-  phone: "213 105 300",
+  phone: "289 105 300",
   email: "info@abrigosantasofia.pt",
-  city: "Lisboa",
+  city: "Albufeira",
   full_description: "The Abrigo Santa Sofia is a nonprofit that collects, organizes and distributes food and goods in different locations around the Algarve area for people in need. Join our Program and become a regular donator",
   min_time: 9,
   max_time: 12
@@ -250,12 +250,12 @@ puts "Created #{abrigo_santa.name}"
 
 better_days = Nonprofit.new(
   name: "Better Days Shelters",
-  brief_description: "Public shelter for those in need.",
+  brief_description: "Public shelters for those in need.",
   address: "Rua Professor Doutor Montalvão Marques, 7, Portimão",
-  phone: "212 205 210",
+  phone: "289 205 210",
   email: "info@betterdays.pt",
   city: "Portimão",
-  full_description: "The Better Days Shelter is a nonprofit that provides temporary shelter and programs for re-socialization for those in need.",
+  full_description: "The Better Days Shelters is a nonprofit that provides temporary shelter and programs for re-socialization for those in need.",
   min_time: 16,
   max_time: 18
 )
