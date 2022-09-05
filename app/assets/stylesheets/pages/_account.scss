@@ -1,0 +1,65 @@
+.account-grid {
+  display: grid;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 202px;
+}
+
+.avatar-bordered {
+  border-color: $star-blue;
+  border-width: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.account-li {
+  color: white;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.org-name {
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.card-upcoming {
+  width: 518px;
+  height: 758px;
+  left: 801px;
+  top: 145px;
+  background-color: $main-green;
+  border-radius: 30px;
+  padding: 50px;
+  h3 {
+    color: $tea-green;
+  }
+}
+
+.card-favourite {
+  width: 617px;
+  height: 378px;
+  left: 121px;
+  top: 525px;
+  background-color: $main-green;
+  border-radius: 30px;
+  h3 {
+    color: $tea-green;
+  }
+}
+
+.card-previous {
+  width: 1198px;
+  height: 387px;
+  left: 121px;
+  top: 954px;
+  background-color: $main-green;
+  border-radius: 30px;
+  h3 {
+    color: $tea-green;
+  }
+}
