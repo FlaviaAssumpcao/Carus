@@ -2,10 +2,10 @@
   <div class="flex-container">
     <div class="btns flex-container flex-item col-2">
         <ul>
-          <%= link_to 'Clean all filters', goods_nonprofits_path %>
+          <%= link_to 'Clean all filters', goods_nonprofits_path, class:"clean"%>
           <% @goods_categories.each do |goods_category| %>
             <li class="btn btn-category flex-item">
-              <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]) %>
+              <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]), class: "filter-btns" %>
             </li>
           <% end %>
         </ul>
@@ -23,9 +23,11 @@
       <%# create partial for the cards display since it is the same in goods and volunteer  %>
       <div style="display: grid; grid-template-columns: 1fr 1fr; margin: 20px;">
         <% @nonprofits.each do |nonprofit| %>
-        <div class="card-product" style="margin: 10px;">
+        <div class="card-product">
           <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
+          <div>
             <%= carus_image(nonprofit.logo) %>
+          </div>
             <div class="card-product-infos">
               <h5><strong><%= nonprofit.name %></strong></h5>
               <h6><%= nonprofit.city %></h6>
