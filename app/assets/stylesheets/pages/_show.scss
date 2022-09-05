@@ -6,13 +6,20 @@
   position: relative;
 }
 
+.description {
+  font-size:17px;
+}
+
+
 .logo > img {
   border-radius: 8px;
+  width: 200px;
+  height: 200px;
 }
 
 .carousel-item img {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
