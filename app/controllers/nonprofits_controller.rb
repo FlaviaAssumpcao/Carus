@@ -32,7 +32,7 @@ class NonprofitsController < ApplicationController
        {
          lat: @nonprofit.latitude,
          lng: @nonprofit.longitude,
-         info_window: render_to_string(partial: "info_window", locals: {nonprofit: @nonprofit})
+        #  info_window: render_to_string(partial: "info_window", locals: {nonprofit: @nonprofit})
        }]
     #  end
 
