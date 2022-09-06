@@ -10,6 +10,16 @@ class NonprofitsController < ApplicationController
     end
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
     @goods_categories = GoodsCategory.where.not(name: "Multiple categories")
+
+    @nonprofits_map = Nonprofit.all
+    @markers = @nonprofits_map.geocoded.map do |nonprofit|
+      @markers = [
+        {
+          lat: nonprofit.latitude,
+          lng: nonprofit.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
+        }]
+    end
   end
 
   def volunteer
@@ -26,15 +36,12 @@ class NonprofitsController < ApplicationController
   end
 
   def show
-    #  @nonprofits = Nonprofit.all
-    #  @markers = @nonprofits.geocoded.map do |nonprofit|
     @markers = [
        {
          lat: @nonprofit.latitude,
          lng: @nonprofit.longitude,
-        #  info_window: render_to_string(partial: "info_window", locals: {nonprofit: @nonprofit})
        }]
-    #  end
+
 
     if @nonprofit.goods_categories.present?
       @goods_categories = @nonprofit.goods_categories
