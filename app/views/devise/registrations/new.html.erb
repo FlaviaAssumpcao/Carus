@@ -1,12 +1,11 @@
-<section class="container">
-<div id="col-1">
-<p>this is the right side</p>
+<section class="d-flex">
+<div class="col-1">
+ <%= image_tag "/assets/blue.jpeg"%>
 </div>
 
-
-<div id="col-2">
+<div class="col-2 position-relative">
+<p class="sign-up"> Already a member <%= link_to "Sign in!", new_session_path(resource_name)%></p>
 <h2>Join Carus</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
@@ -45,3 +44,5 @@
 <% end %>
 
 </div>
+
+</section>
