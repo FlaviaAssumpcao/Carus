@@ -1,15 +1,16 @@
 <div class="container">
   <div class="flex-container">
-    <div class="btns flex-container flex-item col-2">
-        <ul style="list-style: none;" class="sticky-top">
-          <%= link_to 'Clean all filters', goods_nonprofits_path, class:"clean"%>
+    <div style="margin-right: 20px">
+        <ul class="sticky-top" style="list-style: none;" >
+          <%= link_to 'Cancel filters', goods_nonprofits_path, class:"clean"%>
           <% @goods_categories.each do |goods_category| %>
-            <li class="">
+            <li>
               <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]), class: "filter-btns #{goods_category.id.to_s == params[:goods_category] ? "filter-btns--active" : ""}" %>
             </li>
           <% end %>
         </ul>
     </div>
+
 
     <div style="flex-grow: 1">
       <div class="search-form" style="width: 40%; margin-left: auto; margin-right: 30px;">
@@ -39,8 +40,10 @@
           <% end %>
       </div>
 
+      
+
       <div class="map-column col-sm-4">
-        <div id="map" style="width: 550px; height: 500px; border-radius: 8px; margin-top: 140px;"
+        <div id="map" style="width: 400px; height: 450px; border-radius: 8px; margin-top: 20px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

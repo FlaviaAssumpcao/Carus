@@ -1,18 +1,13 @@
 <div class="container d-flex" style="background-color: #d5f7ee80; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-<br>
+
   <div class="cards col-sm-6" style="width: 36rem; padding: 50px; border: none; align-items: justify">
     <div>
       <div class="logo" style="margin-bottom: 10px;">
         <%= carus_image(@nonprofit.logo) %>
       </div>
-    <br>
-
-    <%= link_to favorites_path(nonprofit_id: @nonprofit.id), data: { turbo_method: :post } do %>
-      <i class="fa-regular fa-heart"></i>
-    <% end %>
 
       <div>
-        <div class="heading-show" style="margin-bottom: 25px;">
+        <div class="heading-show" style="margin-bottom: 25px; margin-top: 25px;">
           <h3><strong><%= @nonprofit.name %></strong></h3>
           <h5><%= @nonprofit.city %></h5>
         </div>
@@ -28,10 +23,10 @@
       </div>
     </div>
 
-    <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 10px; border: none; margin-top: 30px;">
+    <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-top: 30px; margin-bottom: 15px;">
+      <p>Accepts <strong>GOODS</strong> of the following types:</strong></p>
       <ul>
         <% if @nonprofit.goods_categories.present? %>
-        <p>Accepts <strong>GOODS</strong> of the following types:</strong></p>
           <% @goods_categories.each do |goods_category| %>
             <% if goods_category.name != 'Multiple categories' %>
               <li>
@@ -42,11 +37,11 @@
         <% end %>
       </ul>
     </div>
-    <br>
-    <div class="card" style="width: 30rem; background-color: #ffffff; border-radius: 7px; padding: 10px; border: none; margin-bottom: 15px">
+
+    <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-bottom: 15px;">
+      <p>Accepts <strong>VOLUNTEERS</strong> for the following areas:</p>
       <ul>
         <% if @nonprofit.time_categories.present? %>
-        <p>Accepts <strong>VOLUNTEERS</strong> for the following areas:</p>
           <% @time_categories.each do |time_category| %>
             <% if time_category.name != 'Multiple categories' %>
               <li>
@@ -58,15 +53,21 @@
       </ul>
     </div>
 
-    <br>
-    <div>
-      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big" %>
+
+    <div style="margin-top: 30px">
+      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big"%>
     </div>
   </div>
-  <br>
 
 
-  <div class="col-sm-6" style="width: 40rem; border: none;">
+
+  <div class="col-sm-6" style="width: 30rem; border: none; margin-bottom: 125px">
+    <div class="heart-icon">
+      <%= link_to favorites_path(nonprofit_id: @nonprofit.id), data: { turbo_method: :post } do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    </div>
+
     <div>
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border-radius: 8px;">
         <ol class="carousel-indicators">
@@ -93,9 +94,9 @@
       </div>
 
     </div>
-    <br>
 
-    <div class="map no-search" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
+
+    <div id="map" class="no-search" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

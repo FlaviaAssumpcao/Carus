@@ -21,9 +21,13 @@
             </div>
           </li>
         <% else %>
-          <li class="btn btn-signin">
-            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
-          </li>
+
+          <%if controller_name != "registrations" && action_name != 'new' %>
+            <li class="btn btn-signin">
+              <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+            </li>
+
+          <% end %>
         <% end %>
       </ul>
     </div>
