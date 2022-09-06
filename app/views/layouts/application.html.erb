@@ -22,11 +22,13 @@
       <%= render "shared/flashes" %>
 
     <% if controller_name != "pages" && action_name != 'home'  %>
+      <%= yield %>
+    <% elsif controller_name != "sessions" && action_name != 'new'  %>
+      <%= yield %>
+    <% else %>
       <div class="page-content">
         <%= yield %>
       </div>
-    <% else %>
-      <%= yield %>
     <% end %>
 
     <%= render "shared/footer" %>

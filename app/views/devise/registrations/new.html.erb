@@ -1,5 +1,11 @@
-<h2>Sign up</h2>
+<section class="d-flex">
+<div class="col-1">
+ <%= image_tag "/assets/blue.jpeg"%>
+</div>
 
+<div class="col-2 position-relative">
+<p class="sign-up"> Already a member <%= link_to "Sign in!", new_session_path(resource_name)%></p>
+<h2>Join Carus</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
 
@@ -22,7 +28,6 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "date-of-birth" }%>
-    <%= f.input :photo, as: :file %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -31,14 +36,13 @@
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up",class:"btn-big" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+
+</section>
