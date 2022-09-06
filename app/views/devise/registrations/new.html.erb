@@ -4,7 +4,7 @@
 </div>
 
 <div class="col-2 position-relative">
-<p class="sign-up"> Already a member <%= link_to "Sign in!", new_session_path(resource_name)%></p>
+<p class="sign-in"> Already a member <%= link_to "Sign in!", new_session_path(resource_name)%></p>
 <h2>Join Carus</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
   <%= f.error_notification %>
@@ -36,6 +36,9 @@
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo,
+                required: true,
+                as: :file %>
   </div>
 
   <div class="form-actions">
