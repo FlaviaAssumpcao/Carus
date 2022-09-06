@@ -2,7 +2,7 @@
   <div class="flex-container">
     <div style="margin-right: 20px">
         <ul class="sticky-top" style="list-style: none;" >
-          <%= link_to 'Clean all filters', goods_nonprofits_path, class:"clean"%>
+          <%= link_to 'Cancel filters', goods_nonprofits_path, class:"clean"%>
           <% @goods_categories.each do |goods_category| %>
             <li>
               <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]), class: "filter-btns #{goods_category.id.to_s == params[:goods_category] ? "filter-btns--active" : ""}" %>
@@ -11,14 +11,16 @@
         </ul>
     </div>
 
-    <div class="col-sm-6" style="width: 600px;">
+    <div class="col-sm-6 " style="width: 600px;">
       <%# create partial for the cards display since it is the same in goods and volunteer  %>
-      <div class="search-form" style="width: 50%; margin-left: 50px;">
-        <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
-          <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
-          <%= f.submit "Submit", class: "btn btn-search" %>
-        <% end %>
+      <div class="sticky-top" style="background-color: white; height: 150px; width: 600px">
+        <div class="search-form" style="width: 50%; margin-left: 50px; color: grey;">
+          <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+            <%= f.input :filter_by_city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
+            <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
+            <%= f.submit "Submit", class: "btn btn-search" %>
+          <% end %>
+        </div>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr; margin: 20px;">
