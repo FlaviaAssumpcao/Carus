@@ -1,22 +1,99 @@
 .new-container{
   margin-left: 200px;
   margin-right: 200px;
+  min-height: calc(100vh - 172px);
 }
 
-.button-div {
-  position: absolute;
-  bottom: 50px;
-  left: 600px;
- }
-
- .back-div {
-  position: absolute;
-  bottom: 50px;
+.div-links {
+  min-height: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: 100px;
+  //calc(100vh - 10px);
 }
+
 
 .back-link {
   color: $medium-gray;
   &:hover {
     color: black;
   }
+}
+
+.flip-card-3D-wrapper {
+  width: 60%;
+  height: 80%;
+  max-width: 300px;
+  max-height: 500px;
+  position: relative;
+  -o-perspective: 900px;
+  -webkit-perspective: 900px;
+  -ms-perspective: 900px;
+  perspective: 900px;
+  margin: 0;
+}
+#flip-card {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 50px auto;
+  position: relative;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+  -o-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.do-flip {
+  -o-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+#flip-card-btn-turn-to-back, #flip-card-btn-turn-to-front {
+  position: absolute;
+  top: 80px;
+  right: 8px;
+  width: 150px;
+  height: 40px;
+  background: white;
+  cursor: pointer;
+  visibility: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: .7em;
+  padding: 0;
+  color: grey;
+  border: none;
+  font-family: $body-font;
+  font-size: 14;
+  color: #6d6d6d;
+}
+#flip-card .flip-card-front, #flip-card .flip-card-back{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+}
+
+#flip-card .flip-card-back {
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+#flip-card .flip-card-front p, #flip-card .flip-card-back p {
+  color: grey;
+  display: block;
+  position: absolute;
+  top: 40%;
+  width: 100%;
 }
