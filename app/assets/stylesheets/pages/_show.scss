@@ -5,6 +5,15 @@
   position: relative;
 }
 
+.no-search {
+  input {
+    display: none;
+  }
+  .mapboxgl-ctrl-geocoder--icon-search {
+    display: none;
+  }
+}
+
 .description {
   font-size:17px;
   text-align: justify;
