@@ -1,6 +1,6 @@
-<div class="container d-flex" style="background-color: #e8ffc1d2; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1057px;">
+<div class="container d-flex" style="background-color: #d5f7ee80; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
 <br>
-  <div class="cards col-sm-6" style="width: 37rem; padding: 50px; border: none; align-items: justify">
+  <div class="cards col-sm-6" style="width: 36rem; padding: 50px; border: none; align-items: justify">
     <div>
       <div class="logo" style="margin-bottom: 10px;">
         <%= carus_image(@nonprofit.logo) %>
@@ -18,7 +18,7 @@
           <p><%= @nonprofit.address %></p>
         </div>
         <div class="description">
-          <p><%= @nonprofit.full_description %></p>
+          <p><em><%= @nonprofit.full_description %></em></p>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
     </div>
     <br>
 
-    <div id="map" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
+    <div class="map" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

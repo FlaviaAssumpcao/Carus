@@ -1,6 +1,5 @@
 
-#map {
-  height: 100vh;
+.map {
   position: sticky;
   top: 0;
   position: relative;
@@ -8,6 +7,7 @@
 
 .description {
   font-size:17px;
+  text-align: justify;
 }
 
 
@@ -17,9 +17,14 @@
   height: 200px;
 }
 
+.card p {
+  margin-top: 10px;
+}
+
 .carousel-item img {
   width: 400px;
   height: 300px;
+  border-radius: 8px;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
