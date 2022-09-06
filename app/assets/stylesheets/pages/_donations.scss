@@ -1,8 +1,22 @@
 .new-container{
-  margin-left: 180px;
-  margin-right: 180px;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
-.back-link p {
-  color: #6d6d6d !important;
+.button-div {
+  position: absolute;
+  bottom: 50px;
+  left: 600px;
+}
+
+.back-div {
+  position: absolute;
+  bottom: 50px;
+}
+
+.back-link {
+  color: $medium-gray;
+  &:hover {
+    color: black;
+  }
 }
