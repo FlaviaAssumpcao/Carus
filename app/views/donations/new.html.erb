@@ -1,29 +1,61 @@
-<h1 class="text-center my-5" style="color: #0278AE; letter-spacing: 5px; line-height: 1.5em;">Book a meetup timeslot with<br><strong><%= @nonprofit.name %></strong></h1>
+<div class="new-container ">
+  <h1 class="text-center my-5" style="color: #0278AE; letter-spacing: 5px; line-height: 1.5em;">Book a meeting with<br><strong><%= @nonprofit.name %></strong></h1>
 
+    <%= simple_form_for [@nonprofit, @donation] do |f| %>
+      <div class="d-flex justify-content-between pt-5">
+        <div>
+          <%= f.input :date, as: :date, html5: true %>
+        </div>
 
-<%= simple_form_for [@nonprofit, @donation] do |f| %>
-    <div class="d-flex justify-content-around pt-5">
-      <div>
-        <%= f.input :date, as: :date, html5: true %>
+        <div>
+          <%= f.input :time, as: :radio_buttons,
+            collection: (@nonprofit.min_time..@nonprofit.max_time).map { |time| ['%0.2d:00' % time, time] }  %>
+        </div>
+
+        <div class="flip-card-3D-wrapper">
+          <div id="flip-card">
+            <div class="flip-card-front">
+              <%= f.association :goods_category, collection: @nonprofit.goods_categories, label: "What type of goods will you donate?" %>
+              <button id="flip-card-btn-turn-to-back" type="button">I'd rather volunteer</button>
+            </div>
+
+            <div class="flip-card-back">
+              <%= f.association :time_category, collection: @nonprofit.time_categories, label: "What's your volunteering cause?" %>
+              <button id="flip-card-btn-turn-to-front" type="button">I'd rather donate goods</button>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div>
-        <%= f.input :time, as: :radio_buttons,
-          collection: (@nonprofit.min_time..@nonprofit.max_time).map { |time| ['%0.2d:00' % time, time] }  %>
-      </div>
-
-      <div>
-        <%= f.association :goods_category, collection: @nonprofit.goods_categories %>
-      </div>
-
-      <div>
-        <%= f.association :time_category, collection: @nonprofit.time_categories %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="text-center col-12">
+      <div class="div-links">
+        <p><%= link_to "< Back to nonprofit", nonprofit_path(@nonprofit), class: "back-link" %></p>
         <%= f.submit "CONFIRM", class: "btn btn-big" %>
       </div>
-    </div>
-<% end %>
+    <% end %>
+
+</div>
+
+<script>
+if (document.readyState !== 'loading') {
+    myInitCode();
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        myInitCode();
+    });
+}
+
+function myInitCode() {
+  document.getElementById('flip-card-btn-turn-to-back').style.visibility = 'visible';
+  document.getElementById('flip-card-btn-turn-to-front').style.visibility = 'visible';
+
+
+  document.getElementById('flip-card-btn-turn-to-back').onclick = function() {
+  document.getElementById('flip-card').classList.toggle('do-flip');
+  };
+
+  document.getElementById('flip-card-btn-turn-to-front').onclick = function() {
+  document.getElementById('flip-card').classList.toggle('do-flip');
+  };
+}
+</script>

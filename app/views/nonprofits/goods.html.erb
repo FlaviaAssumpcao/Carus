@@ -1,21 +1,19 @@
-<div class="container d-flex" style="width: 1100px; justify-content: space-evenly;">
+<div class="container">
   <div class="flex-container">
-    <div class="btns flex-container flex-item col-2">
-        <ul style="list-style: none;" class="sticky-top">
-          <%= link_to 'Clean all filters', goods_nonprofits_path, class:"clean"%>
+    <div style="margin-right: 20px">
+        <ul class="sticky-top" style="list-style: none;" >
+          <%= link_to 'Cancel filters', goods_nonprofits_path, class:"clean"%>
           <% @goods_categories.each do |goods_category| %>
-            <li class="">
+            <li>
               <%= link_to goods_category.name, goods_nonprofits_path(goods_category: goods_category, city: params[:city]), class: "filter-btns #{goods_category.id.to_s == params[:goods_category] ? "filter-btns--active" : ""}" %>
             </li>
           <% end %>
         </ul>
     </div>
 
-    <div style="width: 600px;">
 
-      <%# create partial for the cards display since it is the same in goods and volunteer  %>
-
-     <div class="search-form" style="width: 80%; margin-left: 700px;">
+    <div style="flex-grow: 1">
+      <div class="search-form" style="width: 40%; margin-left: auto; margin-right: 30px;">
         <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
           <%= f.input :city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
           <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
@@ -23,9 +21,11 @@
         <% end %>
       </div>
 
+      <%# create partial for the cards display since it is the same in goods and volunteer  %>
+
       <div style="display: grid; grid-template-columns: 1fr; margin: 20px;">
         <% @nonprofits.uniq.each do |nonprofit| %>
-          <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
+        <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
         <div class="card-product">
             <div>
               <%= carus_image(nonprofit.logo) %>
@@ -35,20 +35,19 @@
               <h6><%= nonprofit.city %></h6>
               <p><%= nonprofit.brief_description %></p>
             </div>
-         </div>
+        </div>
           <% end %>
-        <% end %>
-       </div>
+          <% end %>
+      </div>
 
-    </div>
+      
 
-    <div class="map-column col-sm-4">
-
-
-      <div id="map" style="width: 550px; height: 500px; border-radius: 8px; margin-top: 140px;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div class="map-column col-sm-4">
+        <div id="map" style="width: 400px; height: 450px; border-radius: 8px; margin-top: 20px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>

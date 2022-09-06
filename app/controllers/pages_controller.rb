@@ -5,9 +5,9 @@ class PagesController < ApplicationController
   end
 
   def my_account
-    @donations = Donation.where(user: current_user)
+    @past_donations = Donation.where(user: current_user, date: ..Date.today)
+    @upcoming_donations = Donation.where(user: current_user, date: Date.today..).order(date: :asc)
 
     @favorites = Favorite.where(user: current_user)
   end
-
 end

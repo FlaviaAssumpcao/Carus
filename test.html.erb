@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mt-5">
+  <div class="row">
     <div class="col-12 col-lg-6">
       <div class="member">
         <%= image_tag "/assets/user.jpg", class: "avatar-bordered flex-item" %>
@@ -7,11 +7,11 @@
         <p class="flex-item">Member since <%= current_user.created_at.strftime("%Y") %></p>
       </div>
 
-      <div class="card-account favourite">
+      <div class="card-account favourite carousel slide" id="simple-carousel" data-ride="carousel">
         <h3>Favourite nonprofits</h3>
         <% @favorites.each do |favorite| %>
           <%= link_to nonprofit_path(favorite.nonprofit) do %>
-            <div>
+            <div class="carousel-item active d-block w-100">
               <%= carus_image(favorite.nonprofit.logo) %>
             </div>
             <div class="card-product-infos">
@@ -27,7 +27,7 @@
       <h3>Upcoming donations</h3>
       <div class="upcoming-scroll">
         <ul class="account-li">
-          <%  @upcoming_donations .each do |donation| %>
+          <%  @order_donations .each do |donation| %>
             <% if donation.date >= Date.today %>
               <li class="org-name"><%= donation.nonprofit.name %></li>
               <li class="upcoming-description"><%= donation.nonprofit.address %></li>
@@ -45,24 +45,3 @@
       </div>
     </div>
   </div>
-  <div class="row my-5">
-    <div class="card-account previous">
-      <h3>Previous donations</h3>
-      <div class="previous-scroll">
-        <ul class="account-li">
-          <% @past_donations.each do |donation| %>
-            <li>You helped <strong><%= donation.nonprofit.name %></strong> with
-                <% if donation.goods_category.present? %>
-                  <strong><%= donation.goods_category.name %></strong> goods
-                <% end %>
-                <% if donation.time_category.present? %>
-                  volunteering work (<strong><%= donation.time_category.name %></strong>)
-                <% end %>
-                on <%= donation.date.to_formatted_s(:short) %>.
-              </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
