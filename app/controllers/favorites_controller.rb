@@ -6,9 +6,10 @@ class FavoritesController < ApplicationController
     @favorite.nonprofit = @nonprofit
     @favorite.user = current_user
     if @favorite.save
-      redirect_to nonprofit_path(@nonprofit)
+      redirect_to(request.env['HTTP_REFERER'])
+      # redirect_to nonprofit_path(@nonprofit)
     else
-      render "nonprofits#show"
+      render plain: "This nonprofit is already in your favorites."
     end
   end
 end

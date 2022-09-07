@@ -32,6 +32,15 @@ class NonprofitsController < ApplicationController
 
     @nonprofits = @nonprofits.where(city: params[:city]) if params[:city]
     @time_categories = TimeCategory.where.not(name: "Multiple categories")
+
+    @markers = @nonprofits.geocoded.map do |nonprofit|
+      @markers =
+        {
+          lat: nonprofit.latitude,
+          lng: nonprofit.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
+        }
+    end
   end
 
   def show
