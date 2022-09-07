@@ -1,0 +1,38 @@
+.map-search-box {
+  border: none;
+  background-color: #d5f7ee46;
+  text-decoration: none;
+}
+
+.btn-map {
+  justify-content: end;
+}
+
+.map-search-box p {
+  font-size: 13px;
+  font-family: 'Poppins', sans-serif !important;
+  text-align: centre;
+  font-family: 'Poppins', sans-serif !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  border-radius: 7px !important;
+  box-sizing: border-box;
+}
+
+.map-search-box h4 {
+  color: black !important;
+  font-size: 16px;
+  margin-left: 9px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.logo-details {
+  display: flex;
+}
+
+.logo-map > img {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
