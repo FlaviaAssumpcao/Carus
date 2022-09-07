@@ -1,67 +1,89 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col-12 col-lg-6">
+  <div class="row mt-5 justify-content-around">
+    <div class="col-12 col-lg-5">
       <div class="member">
         <%= image_tag "user.jpeg", class: "avatar-bordered flex-item" %>
 
         <p class="flex-item">Member since <%= current_user.created_at.strftime("%Y") %></p>
       </div>
 
-      <div class="card-account favourite">
-        <h3>Favourite nonprofits</h3>
-        <% @favorites.each do |favorite| %>
-          <%= link_to nonprofit_path(favorite.nonprofit) do %>
-            <div>
-              <%= carus_image(favorite.nonprofit.logo) %>
+      <div class="card-account favorite">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="width:100%; display:flex">
+          <div class="carousel-inner" id="carousel-inner-profile">
+
+            <div class="carousel-item active" id="carousel-item-profile">
+              <%= carus_image(@favorites.first.nonprofit.logo, { class: "d-block w-100" }) %>
+              <div class="carousel-caption d-none d-md-block" id="carousel-caption-profile">
+                <h5 style="margin:0;"><%= @favorites.first.nonprofit.name %></h5>
+                <p style="margin:0"><%= @favorites.first.nonprofit.city %></p>
+              </div>
             </div>
-            <div class="card-product-infos">
-              <h5><strong><%= favorite.nonprofit.name %></strong></h5>
-              <h6><%= favorite.nonprofit.city %></h6>
-            </div>
-          <% end %>
-        <% end %>
+
+            <% @favorites.drop(1).each do |favorite| %>
+              <div class="carousel-item" id="carousel-item-profile">
+                <%= carus_image(favorite.nonprofit.logo, class: "d-block w-100") %>
+                <div class="carousel-caption d-none d-md-block" id="carousel-caption-profile">
+                  <h5 style="margin:0"><%= favorite.nonprofit.name %></h5>
+                  <p style="margin:0"><%= favorite.nonprofit.city %></p>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="col-12 col-lg-6 card-account upcoming">
-      <h3>Upcoming donations</h3>
-      <div class="upcoming-scroll">
-        <ul class="account-li">
-          <%  @upcoming_donations .each do |donation| %>
-            <% if donation.date >= Date.today %>
-              <li class="org-name"><%= donation.nonprofit.name %></li>
-              <li class="upcoming-description"><%= donation.nonprofit.address %></li>
-                <% if donation.goods_category.present? %>
-                  <li class="upcoming-description">You will donate <strong><%= donation.goods_category.name %></strong> goods</li>
-                <% end %>
-                <% if donation.time_category.present? %>
-                  <li class="upcoming-description">You will meet to discuss your volunteering program: <strong><%= donation.time_category.name %></strong></li>
-                <% end %>
-              <li class="date-time"><%= donation.date.to_formatted_s(:short) %></li>
+    <div class="col-12 col-lg-5">
+      <div class="card-account upcoming">
+        <h3>Upcoming donations</h3>
+        <div class="upcoming-scroll">
+          <ul class="account-li">
+            <%  @upcoming_donations .each do |donation| %>
+              <% if donation.date >= Date.today %>
+                <li class="org-name"><%= donation.nonprofit.name %></li>
+                <li class="upcoming-description"><%= donation.nonprofit.address %></li>
+                  <% if donation.goods_category.present? %>
+                    <li class="upcoming-description">You will donate <strong><%= donation.goods_category.name %></strong> goods</li>
+                  <% end %>
+                  <% if donation.time_category.present? %>
+                    <li class="upcoming-description">You will meet to discuss your volunteering program: <strong><%= donation.time_category.name %></strong></li>
+                  <% end %>
+                <li class="date-time"><%= donation.date.to_formatted_s(:short) %></li>
+              <% end %>
+                <br>
             <% end %>
-              <br>
-          <% end %>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row my-5">
-    <div class="card-account previous">
-      <h3>Previous donations</h3>
-      <div class="previous-scroll">
-        <ul class="account-li">
-          <% @past_donations.each do |donation| %>
-            <li>You helped <strong><%= donation.nonprofit.name %></strong> with
-                <% if donation.goods_category.present? %>
-                  <strong><%= donation.goods_category.name %></strong> goods
-                <% end %>
-                <% if donation.time_category.present? %>
-                  volunteering work (<strong><%= donation.time_category.name %></strong>)
-                <% end %>
-                on <%= donation.date.to_formatted_s(:short) %>.
-              </li>
-          <% end %>
-        </ul>
+
+    <div class=" col-12 col-lg-11 mt-5 mb-5">
+      <div class="card-account previous">
+        <h3>Previous donations</h3>
+        <div class="previous-scroll">
+          <ul class="account-li previous-description">
+            <% @past_donations.each do |donation| %>
+              <li style="margin-bottom: 20px">You helped <u><%= donation.nonprofit.name %></u> with
+                  <% if donation.goods_category.present? %>
+                    <u><%= donation.goods_category.name %></u> goods
+                  <% end %>
+                  <% if donation.time_category.present? %>
+                    volunteering work (<u><%= donation.time_category.name %></u>)
+                  <% end %>
+                  on <%= donation.date.to_formatted_s(:short) %>.
+                </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

@@ -20,50 +20,54 @@
 }
 
 .card-account {
-  background-color: $main-green;
+  background-color: rgba(98, 196, 183, 0.5);
   border-radius: 30px;
-  padding: 40px;
+  padding: 24px;
+  width: fit-content;
   h3 {
-    color: $tea-green;
+    color: $star-blue;
     text-align: center;
     margin-bottom: 20px;
     letter-spacing: 3px;
   }
 }
 
-.upcoming {
-  height: 650px;
-  grid-row: 1/3;
-  grid-column: 2;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-.upcoming-scroll {
-  height: 500px;
-  width: 420px;
-  overflow:auto;
-}
-
 .account-li {
-  color: white;
+  color: $star-blue;
   list-style-type: none;
   list-style-position: inside;
   padding: 0;
   margin: 0;
 }
 
-.org-name {
-  font-weight: 600;
-  font-size: 20px;
-  margin-top: 10px;
+.upcoming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upcoming-scroll {
+  height: 500px;
+  width: 420px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  :-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .upcoming-description {
   letter-spacing: 5px;
   font-weight: 200;
   font-size: 15px;
+  margin-top: 10px;
+}
+
+.org-name {
+  font-weight: 600;
+  font-size: 20px;
   margin-top: 10px;
 }
 
@@ -75,30 +79,78 @@
   margin-top: 10px;
 }
 
-.favourite {
+.favorite {
   height: 378px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  object-fit: fill;
+}
+
+.nonprofit-img {
+  object-fit: scale-down;
 }
 
 .previous {
   height: 387px;
   grid-column: 1/ span 2;
   align-items: center;
-  margin: auto;
   justify-content: center;
 }
 
 .previous-scroll {
-  height: 387px;
-  overflow:auto;
+  overflow: hidden;
 }
 
 .previous-description {
   font-weight: 200;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 10px;
-  line-height: 50px;
+  line-height: 40px;
   letter-spacing: 5px;
+}
+
+.previous-scroll {
+  height: 300px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  :-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.card-account.favorite {
+  width:100% !important;
+}
+
+.card-account.upcoming {
+  height:100% !important;
+  margin-left: auto
+}
+
+
+#carousel-inner-profile {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+  height: 325px;
+}
+
+#carousel-item-profile {
+  height:100%;
+
+  img {
+    height:65%;
+    object-fit: contain;
+    width:100% !important
+  }
+}
+
+#carousel-caption-profile {
+  h5, p {
+    color: $star-blue;
+  }
 }

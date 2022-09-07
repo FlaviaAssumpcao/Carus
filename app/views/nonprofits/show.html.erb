@@ -63,9 +63,11 @@
 
   <div class="col-sm-6" style="width: 30rem; border: none; margin-bottom: 125px">
     <div class="heart-icon">
-      <%= link_to favorites_path(nonprofit_id: @nonprofit.id), data: { turbo_method: :post } do %>
-        <i class="fa-regular fa-heart"></i>
+      <%= link_to favorites_path(@nonprofit.id), data: { turbo_method: :post } do %>
+        <i class="fa-<%= @nonprofit.favorites.find_by(user: current_user) ? 'solid' : 'regular' %> fa-heart" style="color: black"></i>
       <% end %>
+
+
     </div>
 
     <div>
