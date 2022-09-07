@@ -45,21 +45,6 @@
               <i class="fa-<%= nonprofit.favorites.find_by(user: current_user) ? 'solid' : 'regular' %> fa-heart" style="color: black"></i>
             <% end %>
 
-<!--
-            <% if @favorited %>
-              <%= link_to favorites_path(nonprofit_id: nonprofit.id), data: { turbo_method: :post }, class: "position-absolute top-0 end-0 me-4 mt-2" do %>
-                <i class="fa-solid fa-heart" style="color: black"></i>
-              <% end %>
-              <% else %>
-                <%= link_to favorites_path(nonprofit_id: nonprofit.id), data: { turbo_method: :post }, class: "position-absolute top-0 end-0 me-4 mt-2" do %>
-                  <i class="fa-regular fa-heart" style="color: black"></i>
-                <% end %>
-              <% end %>
-              -->
-
-              <%# <i class="fa-<%= @favorited ? 'solid' : 'regular' fa-heart" style="color: black"></i> %>
-            <%# <% end %>
-
           </div>
         <% end %>
       </div>
