@@ -1,4 +1,4 @@
-<div class="map-search-box">
+<div class="map-search-box" style="margin: none; padding: 5px">
   <div class="logo-details d-flex" style="margin-top: 5px">
     <div class="logo-map">
       <%= carus_image(nonprofit.logo) %>
@@ -6,14 +6,14 @@
     <h4><%= link_to nonprofit.name, nonprofit_path(nonprofit) %></h4>
   </div>
 
-    <div style="margin-top: 20px">
-      <p><%= nonprofit.address %></p>
-      <p><%= nonprofit.email %></p>
-      <p><%= nonprofit.phone %></p>
-      <p><%= nonprofit.brief_description %></p>
+    <div class="icons-map" style="margin-top: 20px">
+      <p><i class="fa-solid fa-phone" style="margin-right: 5px"></i> <%= nonprofit.phone %></p>
+      <p><i class="fa-regular fa-envelope" style="margin-right: 5px"></i> <%= nonprofit.email %></p>
+      <p><i class="fa-solid fa-map-pin" style="margin-right: 5px"></i> <%= nonprofit.address %></p>
+      <p></i style="align-item-justify"><%= nonprofit.brief_description %></p>
     </div>
 
-  <div class="btn-map">
+  <div class="btn-map d-flex" style="margin-left: 230px">
     <a href="<%= new_nonprofit_donation_path(nonprofit) %>" class="btn btn-sml">Donate</a>
   </div>
 </div>

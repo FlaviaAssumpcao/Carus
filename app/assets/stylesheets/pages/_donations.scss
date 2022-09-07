@@ -2,16 +2,9 @@
   margin-left: 200px;
   margin-right: 200px;
   min-height: calc(100vh - 172px);
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
-
-.div-links {
-  min-height: 150px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin-bottom: 100px;
-}
-
 
 .back-link {
   color: $medium-gray;
@@ -21,10 +14,8 @@
 }
 
 .flip-card-3D-wrapper {
-  width: 60%;
-  height: 80%;
-  max-width: 300px;
-  max-height: 500px;
+  width: 100%;
+  height: fit-content;
   position: relative;
   -o-perspective: 900px;
   -webkit-perspective: 900px;
@@ -33,10 +24,9 @@
   margin: 0;
 }
 #flip-card {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  margin: 50px auto;
+  width: 85%;
+  height: 85%;
+  text-align: left;
   position: relative;
   -o-transition: all 1s ease-in-out;
   -webkit-transition: all 1s ease-in-out;
@@ -57,14 +47,14 @@
   position: absolute;
   top: 80px;
   right: 8px;
-  width: 150px;
+  width: 200px;
   height: 40px;
   background: white;
   cursor: pointer;
   visibility: hidden;
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  font-size: .7em;
+  font-size: .9em;
   padding: 0;
   color: grey;
   border: none;
@@ -95,4 +85,23 @@
   position: absolute;
   top: 40%;
   width: 100%;
+}
+
+.form-select {
+  border-color: #62C4B7;
+  box-shadow: #CECCCC;
+  border-radius: 5px;
+}
+
+.form-check-input {
+  border-color: #62C4B7;
+  box-shadow: #CECCCC;
+  border-radius: 5px;
+}
+
+.align-items-center {
+  .btn-big {
+    line-height: 19px;
+    padding: 13px 50px 13px 50px;
+  }
 }

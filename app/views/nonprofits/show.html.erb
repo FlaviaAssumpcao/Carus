@@ -1,4 +1,4 @@
-<div class="container d-flex" style="background-color: #d5f7ee80; border-radius: 8px; padding: 10px; border: none; align-items: center; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 30px; margin-bottom: 30px">
+<div class="container d-flex" style="background-color:rgba(98, 196, 183, 0.2); border-radius: 8px; padding: 15px; border: none; align-items: center; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 30px; margin-bottom: 30px">
 
   <div class="cards col-sm-6" style="width: 36rem; padding: 50px; border: none; align-items: justify">
     <div>
@@ -12,9 +12,9 @@
           <h5><%= @nonprofit.city %></h5>
         </div>
         <div class="details-show" style="margin-bottom: 25px;">
-          <p><%= @nonprofit.email %></p>
-          <p><%= @nonprofit.phone %></p>
-          <p><%= @nonprofit.address %></p>
+          <p><i class="fa-solid fa-phone" style="margin-right: 10px"></i> <%= @nonprofit.phone %></p>
+          <p><i class="fa-regular fa-envelope" style="margin-right: 10px"></i> <%= @nonprofit.email %></p>
+          <p><i class="fa-solid fa-map-pin" style="margin-right: 10px"></i> <%= @nonprofit.address %></p>
         </div>
         <div class="description">
           <p><em><%= @nonprofit.full_description %></em></p>

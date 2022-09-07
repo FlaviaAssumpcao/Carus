@@ -6,6 +6,7 @@
 
 .btn-map {
   justify-content: end;
+  align-items: center !important;
 }
 
 .map-search-box p {
@@ -28,6 +29,7 @@
 
 .logo-details {
   display: flex;
+  margin: none;
 }
 
 .logo-map > img {
@@ -35,4 +37,8 @@
   height: 50px;
   object-fit: cover;
   border-radius: 8px;
+}
+
+.logo-details h4 {
+  color: black;
 }
