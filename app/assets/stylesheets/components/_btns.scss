@@ -24,6 +24,35 @@
   }
 }
 
+
+.btn-sml {
+  background-color: #62C4B7;
+  color: white;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.13em;
+  border-radius: 40px;
+  padding:7px 15px 7px 15px;
+  margin-right: 5em;
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
+  text-decoration: none;
+  transition: all 0.3s;
+  &:hover{
+    box-shadow: none;
+    color: white;
+    background-color: $main-green;
+    border: 0px;
+    margin-top: 4px;
+    margin-bottom: -4px;
+    text-decoration: none;
+    background-color: $star-blue;
+  }
+}
+
+
+
 .btn-signin {
   background-color: $tea-green;
   color: $light-gray;
