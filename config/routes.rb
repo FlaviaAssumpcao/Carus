@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :favorites, only: [:create]
+  # resources :favorites, only: [:create]
+  post 'favorites/:nonprofit_id', to: 'favorites#toggle', as: 'favorites'
 
   get "my_account", to: "pages#my_account"
 
