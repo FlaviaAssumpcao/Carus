@@ -19,9 +19,14 @@
     <% else %>
       <%= render "shared/navbar" %>
     <% end %>
-      <%= render "shared/flashes" %>
 
-    <% if controller_name != "pages" && action_name != 'home'  %>
+    <%= render "shared/flashes" %>
+
+    <% if controller_name == "donations" && action_name == 'confirmation' %>
+      <div class="page-content">
+        <%= yield %>
+      </div>
+    <% elsif controller_name != "pages" && action_name != 'home'  %>
       <%= yield %>
     <% elsif controller_name != "sessions" && action_name != 'new'  %>
       <%= yield %>

@@ -1,4 +1,4 @@
-.col-1 {
+.img-form {
   background-color: white;
   color: #0278AE;
   width:50%;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.col-2 {
+.parent-form {
   background-color: white;
   color: #0278AE;
   width: 50%;
@@ -18,17 +18,17 @@
   justify-content: center;
 }
 
-.col-2  form{
+.parent-form  form{
   width:70%
 }
 
-.col-2 p a{
+.parent-form p a{
   color: #0278AE;
   text-decoration: none;
   font-weight: bold;
 }
 
-.col-2 p {
+.parent-form p {
   text-decoration:none;
   color: black;
 }
