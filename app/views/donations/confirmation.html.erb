@@ -1,8 +1,8 @@
-
 <div class= "confirmation" >
+  <h3> CONGRATULATIONS!</h3>
   <p>The <strong><%= @donation.nonprofit.name %></strong> is looking forward to your contribution
    on <strong><%= @donation.date.to_formatted_s(:short) %></strong> at <strong><%= @donation.nonprofit.address %></strong>.
    <br>Thank you!
   </p>
-  <%= link_to "OKAY!",root_path, class:"btn btn-big" %>
-</div>
+  <%= link_to "ALL SET!",root_path, class:"btn btn-big", data:{controller: "party"} %>
+ </div>
