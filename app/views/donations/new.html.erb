@@ -1,8 +1,8 @@
-<div class="new-container ">
+<div class="new-container">
   <h1 class="text-center my-5" style="color: #0278AE; letter-spacing: 5px; line-height: 1.5em;">Book a meeting with<br><strong><%= @nonprofit.name %></strong></h1>
 
     <%= simple_form_for [@nonprofit, @donation] do |f| %>
-      <div class="d-flex justify-content-between pt-5">
+      <div class="d-flex justify-content-around pt-5">
         <div>
           <%= f.input :date, as: :date, html5: true %>
         </div>

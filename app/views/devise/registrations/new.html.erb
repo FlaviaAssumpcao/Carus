@@ -1,9 +1,9 @@
 <section class="d-flex">
-<div class="col-1">
+<div class="col-1 img-form">
  <%= image_tag "/assets/blue.jpeg"%>
 </div>
 
-<div class="col-2 position-relative">
+<div class="col-2 parent-form position-relative">
 <p class="sign-up"> Already a member <%= link_to "Sign in!", new_session_path(resource_name)%></p>
 <h2>Join Carus</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
