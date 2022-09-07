@@ -19,6 +19,8 @@ class NonprofitsController < ApplicationController
           info_window: render_to_string(partial: "info_window", locals: {nonprofit: nonprofit})
         }
     end
+    @favorites = Favorite.where(user: current_user)
+    #also possible: @favorites = current_user.favorites
   end
 
   def volunteer
