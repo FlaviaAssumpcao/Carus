@@ -3,7 +3,9 @@
   <br>
   <p>The <strong><%= @donation.nonprofit.name %></strong> is looking forward to your contribution
    on <strong><%= @donation.date.to_formatted_s(:short) %></strong> at <strong><%= @donation.nonprofit.address %></strong>.
-   <br>Thank you!
+   <br><br>Thank you!
   </p>
-  <%= link_to "ALL SET!",root_path, class:"btn btn-big", data:{controller: "party"} %>
- </div>
+  <div class="allset">
+     <%= link_to "ALL SET!",root_path, class:"btn btn-big btn-confirmation", data:{controller: "party"} %>
+  </div>
+</div>
