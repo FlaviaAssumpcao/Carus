@@ -1,15 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300&display=swap');
-
 .confirmation {
   background-color:#99DDCC ;
-   padding: 100px;
+   padding: 120px;
    border-radius: 50px;
-   width: 40%;
-   margin: auto;
+   width: 50%;
+   margin:100px auto;
+   color: white;
+   text-emphasis: bold;
+   letter-spacing: 3.5px;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+
+}
+.btn-confirmation {
+margin: 0px;
 }
 
-.confirmation p {
-  color: white;
-  text-emphasis: bold;
-  line-height: 2em;
+.allset {
+  margin-top: 20px;
 }
