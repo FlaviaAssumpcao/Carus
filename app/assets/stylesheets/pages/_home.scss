@@ -59,11 +59,6 @@ body {
   align-items: center;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-}
-
 .landing-card-text {
   color: $star-blue;
   justify-self:baseline;
@@ -81,4 +76,12 @@ padding: 0%;
 border-radius: 50px;
 margin-top: 2px;
 margin-bottom: 2px;
+}
+
+.contact {
+  object-fit: cover;
+}
+
+.carus-definition {
+  text-align: justify;
 }

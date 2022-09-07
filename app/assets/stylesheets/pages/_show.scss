@@ -2,6 +2,7 @@
 #map {
   position: sticky;
   top: 0;
+  text-decoration: none;
 }
 
 .sticky-top {
@@ -9,14 +10,17 @@
   top: 0;
 }
 
+
 #search_search_by_city {
   height: 35px;
 }
 
 .heart-icon {
   position: sticky;
-  margin-bottom: 180px;
-  margin-left: 320px;
+  margin-bottom: 120px;
+  margin-left: 360px;
+  size: 100px;
+  color: black;
 }
 
 .no-search {
