@@ -148,3 +148,13 @@
     color: black;
   }
 }
+
+.change-view-page {
+  text-align: center;
+  color: $medium-gray;
+  width: 100%;
+  display: inline-block;
+  &:hover {
+    color: black;
+  }
+}
