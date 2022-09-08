@@ -24,7 +24,7 @@ class NonprofitsController < ApplicationController
   end
 
   def volunteer
-    @nonprofits = Nonprofit.joins(:goods_categorizations)
+    @nonprofits = Nonprofit.joins(:time_categorizations)
         .where.not(time_categorizations: { time_category_id: nil})
 
     if params[:time_category].present?
