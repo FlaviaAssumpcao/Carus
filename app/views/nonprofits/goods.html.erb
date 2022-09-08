@@ -16,12 +16,12 @@
 
     <div class="col-12 col-lg-5">
       <%# create partial for the cards display since it is the same in goods and volunteer  %>
-      <div class="sticky-top bg-white pb-4" style="">
+      <div class="sticky-top bg-white mb-4" style="">
         <div class="search-form ms-2 fill" style="color: grey;">
-          <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-            <%= f.input :filter_by_city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], prompt: "Filter by city", label: false %>
-            <%= f.input :goods_category, as: :hidden, input_html: { value: params[:goods_category], name: 'goods_category' } %>
-            <%= f.submit "Submit", class: "btn btn-search" %>
+          <%= simple_form_for :search, url: goods_nonprofits_path, method: "GET", html: { class: 'form-inline d-flex' } do |f| %>
+            <%= f.input :filter_by_city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, wrapper_html: { class: 'search-bar' }, selected: params[:city], prompt: "Filter by city", label: false %>
+            <%= f.input :goods_category, label: false, input_html: { value: params[:goods_category], name: 'goods_category', class: "d-none" } %>
+            <%= f.submit "Submit", class: "btn btn-search ms-3 me-0" %>
           <% end %>
         </div>
       </div>

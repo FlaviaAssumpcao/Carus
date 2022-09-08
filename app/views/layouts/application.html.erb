@@ -25,6 +25,14 @@
       <div class="page-content">
         <%= yield %>
       </div>
+    <% elsif controller_name == "nonprofits" && action_name == 'goods' %>
+      <div class="index-content">
+        <%= yield %>
+      </div>
+    <% elsif controller_name == "nonprofits" && action_name == 'volunteer' %>
+      <div class="index-content">
+        <%= yield %>
+      </div>
     <% elsif controller_name != "pages" && action_name != 'home'  %>
       <%= yield %>
     <% elsif controller_name != "sessions" && action_name != 'new'  %>
