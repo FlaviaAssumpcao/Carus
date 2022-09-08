@@ -97,12 +97,12 @@
           <ul class="account-li previous-description">
             <% if @past_donations.present? %>
               <% @past_donations.each do |donation| %>
-                <li style="margin-bottom: 20px">You helped <u><%= donation.nonprofit.name %></u> with
+                <li style="margin-bottom: 20px">You helped <span style="font-weight:700;"><%= donation.nonprofit.name %></span> with
                     <% if donation.goods_category.present? %>
-                      <u><%= donation.goods_category.name %></u> goods
+                      <span style="font-weight:700;"><%= donation.goods_category.name %></span> goods
                     <% end %>
                     <% if donation.time_category.present? %>
-                      volunteering work (<u><%= donation.time_category.name %></u>)
+                      volunteering work (<span style="font-weight:700;"><%= donation.time_category.name %></span>)
                     <% end %>
                     on <%= donation.date.to_formatted_s(:short) %>.
                   </li>
