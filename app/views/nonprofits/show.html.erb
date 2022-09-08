@@ -1,13 +1,13 @@
 <div class="container" style="background-color:rgba(98, 196, 183, 0.2); border-radius: 8px; padding: 15px; border: none; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 30px; margin-bottom: 30px">
   <%# HEADER COLUMN %>
-  <div class='show-page__top-column d-flex justify-content-between'>
+  <div class='show-page__top-column d-flex justify-content-between' style="margin-left: 48px; margin-right: 48px; margin-top: 30px;">
       <div class="logo" style="margin-bottom: 10px;">
         <%= carus_image(@nonprofit.logo) %>
       </div>
 
-      <div class="heading-show" style="margin-bottom: 25px; margin-top: 35px; flex-basis: 537px;">
-        <h3><strong><%= @nonprofit.name %></strong></h3>
-        <h5><%= @nonprofit.city %></h5>
+      <div class="heading-show" style="margin-bottom: 25px; margin-top: 35px; margin-left: -100px;">
+        <h1><strong><%= @nonprofit.name %></strong></h1>
+        <h5 style='margin-top: 25px'><%= @nonprofit.city %></h5>
       </div>
     <div class="heart-icon">
       <%= link_to favorites_path(@nonprofit.id), data: { turbo_method: :post } do %>
