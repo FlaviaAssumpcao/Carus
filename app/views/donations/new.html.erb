@@ -1,49 +1,53 @@
-<div class="new-container align-items-center">
+<div class="new-container ">
   <div class="row">
-    <h2 class="text-center my-5" style="color: #0278AE; letter-spacing: 5px; line-height: 1.5em;">Book a meeting with<br><strong><%= @nonprofit.name %></strong></h2>
-
-    <%= simple_form_for [@nonprofit, @donation] do |f| %>
-      <div class="d-flex pt-3 justify-content-center" style="width: 70%; margin: auto">
-        <div class="d-flex">
-          <div style="margin-right:50px">
-            <%= f.input :date, as: :date, html5: true %>
-          </div>
-
-          <div style="margin-right: 120px">
-            <%= f.input :time, as: :radio_buttons,
-              collection: (@nonprofit.min_time..@nonprofit.max_time).map { |time| ['%0.2d:00' % time, time] }  %>
-          </div>
+    <div class="border-booking">
+      <div style="margin-bottom: 20px">
+        <div class="logo-booking d-flex justify-content-center align-items-center">
+        <%= carus_image(@nonprofit.logo) %>
+        <h2 class="text-center my-5" style="color: #0278AE; margin-left:50px; letter-spacing: 5px; line-height: 1.5em;">Book a meeting with<br><strong><%= @nonprofit.name %></strong></h2>
         </div>
-
-        <div class="d-flex flex-column justify-content-between">
-          <div class="flip-card-3D-wrapper">
-            <div id="flip-card">
-              <div class="flip-card-front">
-                <%= f.association :goods_category, collection: @nonprofit.goods_categories, label: "What type of goods will you donate?" %>
-                <button id="flip-card-btn-turn-to-back" type="button">I'd rather volunteer</button>
-              </div>
-
-              <div class="flip-card-back">
-                <%= f.association :time_category, collection: @nonprofit.time_categories, label: "What's your volunteering cause?" %>
-                <button id="flip-card-btn-turn-to-front" type="button">I'd rather donate goods</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="align-items-center" style="margin-left: 150px; margin-top: 100px">
-            <div class="donation-btn" style="height: 50px; margin-top: 100px">
-              <%= f.submit "CONFIRM", class: "btn btn-big"%>
-            </div>
-            <div style="margin-top: 15px">
-              <p><%= link_to "< Back to nonprofit", nonprofit_path(@nonprofit), class: "back-link" %></p>
-            </div>
-          </div>
-        </div>
-
       </div>
 
+      <%= simple_form_for [@nonprofit, @donation] do |f| %>
+        <div class="d-flex pt-3 justify-content-center" style="width: 70%; margin: auto">
+          <div class="d-flex">
+            <div style="margin-right: 50px; margin-left: 30px">
+              <%= f.input :date, as: :date, html5: true %>
+            </div>
 
-    <% end %>
+            <div style="margin-right: 120px">
+              <%= f.input :time, as: :radio_buttons,
+                collection: (@nonprofit.min_time..@nonprofit.max_time).map { |time| ['%0.2d:00' % time, time] }  %>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column justify-content-between">
+            <div class="flip-card-3D-wrapper">
+              <div id="flip-card">
+                <div class="flip-card-front">
+                  <%= f.association :goods_category, collection: @nonprofit.goods_categories, label: "What type of goods will you donate?", prompt: "choose one"%>
+                  <button id="flip-card-btn-turn-to-back" type="button">I'd rather volunteer</button>
+                </div>
+
+                <div class="flip-card-back">
+                  <%= f.association :time_category, collection: @nonprofit.time_categories, label: "What's your volunteering cause?", prompt: "choose one" %>
+                  <button id="flip-card-btn-turn-to-front" type="button">I'd rather donate goods</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="align-items-center" style="margin-left: 150px; margin-top: 100px">
+              <div class="donation-btn" style="height: 50px; margin-top: 100px">
+                <%= f.submit "CONFIRM", class: "btn btn-big"%>
+              </div>
+              <div style="margin-top: 15px; margin-left: 20px">
+                <p><%= link_to "< Back to nonprofit", nonprofit_path(@nonprofit), class: "back-link" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
