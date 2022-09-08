@@ -11,26 +11,27 @@ User.destroy_all
 
 
 puts "Creating users..."
-user_1 = {
+user_1 = User.new(
   first_name: "Paul",
   last_name: "Domingos",
   date_of_birth: "1980-05-22",
   email: "paul.domingos@gmail.com",
   password: 123456
-}
-user_2 = {
+)
+
+user_1.save!
+puts "Created #{user_1.first_name}"
+
+user_2 = User.new(
   first_name: "Joana",
   last_name: "Figueira",
   email: "joana.figueira@gmail.com",
   date_of_birth: "1982-08-22",
   password: 123456
-}
+)
 
-[user_1, user_2].each do |attributes|
-  user = User.create!(attributes)
-  puts "Created #{user.first_name}"
-end
-
+user_2.save!
+puts "Created #{user_2.first_name}"
 
 
 puts "Creating nonprofits..."
@@ -144,10 +145,10 @@ reuse_recicle = Nonprofit.new(
 file_13 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662041269/Carus/reuse_recicle_tpw0si.png")
 reuse_recicle.logo.attach(io: file_13, filename: "reuse_recicle.png", content_type: "image/png")
 
-file_14 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662045030/Carus/Reuse%20Recicle/np_27_gila5j.jpg")
+file_14 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662649416/Carus/Reuse%20Recicle/np_7_kvwgac.jpg")
 reuse_recicle.photos.attach(io: file_14, filename: "reuse_recicle_2.png", content_type: "image/png")
 
-file_15 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662045030/Carus/Reuse%20Recicle/np_6_cnz8cv.jpg")
+file_15 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662649418/Carus/Reuse%20Recicle/np_8_kjya8e.jpg")
 reuse_recicle.photos.attach(io: file_15, filename: "reuse_recicle_3.png", content_type: "image/png")
 
 reuse_recicle.save!
@@ -190,10 +191,10 @@ pro_juventude  = Nonprofit.new(
 file_19 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662041270/Carus/pro_juventude.png_jg35eg.png")
 pro_juventude.logo.attach(io: file_19, filename: " pro_juventude.png", content_type: "image/png")
 
-file_20 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662045007/Carus/Pro%20Juventude/np_22_sztue4.jpg")
+file_20 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662648870/Carus/Pro%20Juventude/np_23_sxp3sd.jpg")
 pro_juventude.photos.attach(io: file_20, filename: "pro_juventude_2.png", content_type: "image/png")
 
-file_21 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662045007/Carus/Pro%20Juventude/np_19_vpocjo.jpg")
+file_21 = URI.open("https://res.cloudinary.com/dqhpwjdfd/image/upload/v1662648870/Carus/Pro%20Juventude/np_23_ltu2xw.jpg")
 pro_juventude.photos.attach(io: file_21, filename: "pro_juventude_3.png", content_type: "image/png")
 
 pro_juventude.save!
@@ -380,5 +381,24 @@ TimeCategorization.create!(nonprofit: pro_juventude, time_category: time_categor
 TimeCategorization.create!(nonprofit: empowered_people, time_category: time_category_disability)
 TimeCategorization.create!(nonprofit: pet_protection, time_category: time_category_animals)
 
+
+puts "Creating donations..."
+donation_1 = Donation.new(
+  user: user_2,
+  nonprofit: unsheltered,
+  date: DateTime.parse("14/09/2022 14:00"),
+  goods_category_id: GoodsCategory.all.sample.id
+)
+donation_1.save!
+puts "Created donation_1"
+
+donation_2 = Donation.new(
+  user: user_2,
+  nonprofit: barriga_cheia,
+  date: DateTime.parse("30/09/2022 12:00"),
+  goods_category_id: GoodsCategory.all.sample.id
+)
+donation_2.save!
+puts "Created donation_2"
 
 puts "Finished!"

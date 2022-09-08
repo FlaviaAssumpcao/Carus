@@ -5,7 +5,7 @@ class Donation < ApplicationRecord
   belongs_to :time_category, optional: true
 
   validates :date, presence: true
-  validates :time, presence: true, on: :create
+#  validates :time, presence: true, on: :create
 
   after_validation :update_date_with_time, on: :create
 
