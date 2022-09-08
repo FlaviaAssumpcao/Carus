@@ -24,7 +24,7 @@
   border-radius: 30px;
   padding: 24px;
   h3 {
-    color: $star-blue;
+    color: black;
     text-align: center;
     margin-bottom: 20px;
     letter-spacing: 3px;
@@ -32,7 +32,7 @@
 }
 
 .account-li {
-  color: $star-blue;
+  color: black;
   list-style-type: none;
   list-style-position: inside;
   padding: 0;
@@ -96,7 +96,7 @@
 }
 
 .favorite-link-color {
-  color: $star-blue
+  color: black
 }
 
 .nonprofit-img {
@@ -127,7 +127,7 @@
 
 #carousel-caption-profile {
   h5, p {
-    color: $star-blue;
+    color: black;
   }
 }
 
@@ -161,7 +161,7 @@
 }
 
 .no-info {
-  color: #0278AE;
+  color: black;
   font-size: 16px;
   letter-spacing: 5px;
   text-align: right;
@@ -172,6 +172,14 @@
 .no-info-previous {
   margin-top: 41px;
   padding: 53px;
+}
+
+.no-info-previous-action {
+  color: black;
+  font-weight: 700;
+  &:hover {
+    color: $star-blue;
+  }
 }
 
 .no-info-favorite {
