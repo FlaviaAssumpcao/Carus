@@ -21,6 +21,7 @@
   margin-left: 360px;
   size: 100px;
   color: black;
+  font-size: 40px;
 }
 
 .no-search {
@@ -42,6 +43,7 @@
   border-radius: 8px;
   width: 270px;
   height: 200px;
+  object-fit: contain;
 }
 
 .card p {
@@ -54,6 +56,22 @@
   height: 300px;
   border-radius: 8px;
   object-fit: cover;
+}
+
+#carousel-control-next {
+  right: 52px;
+}
+
+#carousel-inner {
+  width: 87% !important;
+}
+
+#carouselExampleIndicatorscarousel {
+  position: relative;
+  margin-right: 40px;
+  padding: 4px;
+  align-items: center;
+  right: 52px;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {
@@ -82,5 +100,12 @@
   }
   #carrousel-map {
     display: block;
+  }
+}
+
+.show-carousel-border-radius{
+  margin-top: 237px;
+  *, *::before, *::after {
+    border-radius: 8px;
   }
 }
