@@ -1,16 +1,24 @@
-<div class="container d-flex" style="background-color:rgba(98, 196, 183, 0.2); border-radius: 8px; padding: 15px; border: none; align-items: center; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 30px; margin-bottom: 30px">
-
-  <div class="cards col-sm-6" style="width: 36rem; padding: 50px; border: none; align-items: justify">
-    <div>
+<div class="container" style="background-color:rgba(98, 196, 183, 0.2); border-radius: 8px; padding: 15px; border: none; width: 1057px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 30px; margin-bottom: 30px">
+  <%# HEADER COLUMN %>
+  <div class='show-page__top-column d-flex justify-content-between'>
       <div class="logo" style="margin-bottom: 10px;">
         <%= carus_image(@nonprofit.logo) %>
       </div>
 
+      <div class="heading-show" style="margin-bottom: 25px; margin-top: 35px; flex-basis: 537px;">
+        <h3><strong><%= @nonprofit.name %></strong></h3>
+        <h5><%= @nonprofit.city %></h5>
+      </div>
+    <div class="heart-icon">
+      <%= link_to favorites_path(@nonprofit.id), data: { turbo_method: :post } do %>
+        <i class="fa-<%= @nonprofit.favorites.find_by(user: current_user) ? 'solid' : 'regular' %> fa-heart" style="color: black"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div class='show-page__bottom-column d-flex' >
+    <div class="cards col-sm-6" style="width: 36rem; padding: 50px; border: none; align-items: justify">
       <div>
-        <div class="heading-show" style="margin-bottom: 25px; margin-top: 35px;">
-          <h3><strong><%= @nonprofit.name %></strong></h3>
-          <h5><%= @nonprofit.city %></h5>
-        </div>
         <div class="details-show" style="margin-bottom: 25px;">
           <p><i class="fa-solid fa-phone" style="margin-right: 10px"></i> <%= @nonprofit.phone %></p>
           <p><i class="fa-regular fa-envelope" style="margin-right: 10px"></i> <%= @nonprofit.email %></p>
@@ -19,88 +27,80 @@
         <div class="description">
           <p><em><%= @nonprofit.full_description %></em></p>
         </div>
+      </div>
 
+      <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-top: 30px; margin-bottom: 15px;">
+        <p>Accepts <strong>GOODS</strong> of the following types:</strong></p>
+        <ul>
+          <% if @nonprofit.goods_categories.present? %>
+            <% @goods_categories.each do |goods_category| %>
+              <% if goods_category.name != 'Multiple categories' %>
+                <li>
+                  <%= goods_category.name%>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-bottom: 15px;">
+        <p>Accepts <strong>VOLUNTEERS</strong> for the following areas:</p>
+        <ul>
+          <% if @nonprofit.time_categories.present? %>
+            <% @time_categories.each do |time_category| %>
+              <% if time_category.name != 'Multiple categories' %>
+                <li>
+                  <%= time_category.name%>
+                </li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+
+      <div style="margin-top: 30px">
+        <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big"%>
       </div>
     </div>
 
-    <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-top: 30px; margin-bottom: 15px;">
-      <p>Accepts <strong>GOODS</strong> of the following types:</strong></p>
-      <ul>
-        <% if @nonprofit.goods_categories.present? %>
-          <% @goods_categories.each do |goods_category| %>
-            <% if goods_category.name != 'Multiple categories' %>
-              <li>
-                <%= goods_category.name%>
-              </li>
+    <div class="col-sm-6" style="width: 30rem; border: none; margin-bottom: 125px; padding: 10px">
+
+      <div class="show-carousel-border-radius">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border-radius: 8px;">
+          <ol class="carousel-indicators">
+            <% @nonprofit.photos.each_with_index do |photo, index|%>
+              <button  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>"></button>
             <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="card" style="width: 30rem; background-color: #FAFCFD; border-radius: 7px; padding: 10px; border: none; margin-bottom: 15px;">
-      <p>Accepts <strong>VOLUNTEERS</strong> for the following areas:</p>
-      <ul>
-        <% if @nonprofit.time_categories.present? %>
-          <% @time_categories.each do |time_category| %>
-            <% if time_category.name != 'Multiple categories' %>
-              <li>
-                <%= time_category.name%>
-              </li>
+          </ol>
+          <div class="carousel-inner" id="carousel-inner">
+            <% @nonprofit.photos.each_with_index do |photo, index|%>
+              <div class="carousel-item <%= "active" if index == 0 %>" id="carousel-item">
+                <%= carus_image(photo) %>
+              </div>
             <% end %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
+          </div>
 
-
-    <div style="margin-top: 30px">
-      <%= link_to 'Donate', new_nonprofit_donation_path(@nonprofit), class: "btn btn-big"%>
-    </div>
-  </div>
-
-
-
-  <div class="col-sm-6" style="width: 30rem; border: none; margin-bottom: 125px; padding: 10px">
-    <div class="heart-icon">
-      <%= link_to favorites_path(@nonprofit.id), data: { turbo_method: :post } do %>
-        <i class="fa-<%= @nonprofit.favorites.find_by(user: current_user) ? 'solid' : 'regular' %> fa-heart" style="color: black"></i>
-      <% end %>
-    </div>
-
-    <div class="show-carousel-border-radius">
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border-radius: 8px;">
-        <ol class="carousel-indicators">
-          <% @nonprofit.photos.each_with_index do |photo, index|%>
-            <button  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= index %>" class="<%= "active" if index == 0 %>"></button>
-          <% end %>
-        </ol>
-        <div class="carousel-inner" id="carousel-inner">
-          <% @nonprofit.photos.each_with_index do |photo, index|%>
-            <div class="carousel-item <%= "active" if index == 0 %>" id="carousel-item">
-              <%= carus_image(photo) %>
-            </div>
-          <% end %>
+          <button class="carousel-control-prev" type="button" data-bs-slide="prev"  data-bs-target="#carouselExampleIndicators">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </button>
+          <button class="carousel-control-next" id="carousel-control-next" type="button" data-bs-slide="next"   data-bs-target="#carouselExampleIndicators">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </button>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-slide="prev"  data-bs-target="#carouselExampleIndicators">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </button>
-        <button class="carousel-control-next" id="carousel-control-next" type="button" data-bs-slide="next"   data-bs-target="#carouselExampleIndicators">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </button>
+
+        <div id="map" class="no-search" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
 
 
-      <div id="map" class="no-search" style="width: 400px; height: 300px; margin-top: 20px; border-radius: 8px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
     </div>
-
-
   </div>
 </div>
