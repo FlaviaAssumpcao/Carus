@@ -3,7 +3,7 @@
     <div class="logo-map">
       <%= carus_image(nonprofit.logo) %>
     </div>
-    <h4><%= link_to nonprofit.name, nonprofit_path(nonprofit) %></h4>
+    <h4><%= link_to nonprofit.name, nonprofit_path(nonprofit), class: "marker-color"  %></h4>
   </div>
 
     <div class="icons-map" style="margin-top: 20px">
