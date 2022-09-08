@@ -11,7 +11,7 @@ class DonationsController < ApplicationController
     @donation.user = current_user
 
     if @donation.save
-      redirect_to confirmation_donation_path(@donation), notice: "Your meetup was successfully scheduled"
+      redirect_to confirmation_donation_path(@donation)
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,9 +19,13 @@ class DonationsController < ApplicationController
 
   def confirmation
    @donation = Donation.find(params[:id])
-    #@nonprofit = @donation.nonprofit
   end
 
+  def destroy
+    @donation = Donation.find(params[:id])
+    @donation.destroy
+    redirect_to my_account_path, status: :see_other
+  end
 private
 
   def set_nonprofit
