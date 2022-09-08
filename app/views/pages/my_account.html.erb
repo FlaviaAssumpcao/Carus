@@ -8,6 +8,7 @@
       </div>
 
       <div class="card-account favorite">
+        <h3 style="padding-top:40px">Favourites</h3>
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="width:100%; display:flex">
           <div class="carousel-inner" id="carousel-inner-profile">
 
@@ -15,11 +16,11 @@
               <% if @favorites.present? %>
                 <%= carus_image(@favorites.first.nonprofit.logo, { class: "d-block w-100" }) %>
                 <div class="carousel-caption d-none d-md-block" id="carousel-caption-profile">
-                  <h5 style="margin:0;"><%= link_to @favorites.first.nonprofit.name, nonprofit_path(@favorites.first.nonprofit) %></h5>
+                  <h5 style="margin:0;"><%= link_to @favorites.first.nonprofit.name, nonprofit_path(@favorites.first.nonprofit), class: 'favorite-link-color'%></h5>
                   <p style="margin:0"><%= @favorites.first.nonprofit.city %></p>
                 </div>
               <% else %>
-                <p>You don't have any favorite nonprofit yet</p>
+                <p class="no-info no-info-favorite">You don't have any favorite nonprofit yet</p>
               <% end %>
             </div>
 
@@ -65,7 +66,7 @@
                 <br>
               <% end %>
             <% else %>
-              <p>You don't have any upcoming donations at the moment</p>
+              <p class="no-info no-info-upcoming">You don't have any upcoming donations at the moment</p>
             <% end %>
           </ul>
         </div>
@@ -90,7 +91,7 @@
                   </li>
               <% end %>
             <% else %>
-              <p>You don't have any past donations yet.<br>Go ahead and book one!</p>
+              <p class="no-info no-info-previous">You don't have any past donations yet.<br>Go ahead and book one!</p>
             <% end %>
           </ul>
         </div>

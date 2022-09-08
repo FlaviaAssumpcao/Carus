@@ -57,6 +57,11 @@
   }
 }
 
+.card-account.upcoming {
+  height:100% !important;
+  margin-left: auto
+}
+
 .upcoming-description {
   letter-spacing: 5px;
   font-weight: 200;
@@ -78,6 +83,7 @@
   margin-top: 10px;
 }
 
+
 .favorite {
   height: 378px;
   display: flex;
@@ -86,11 +92,45 @@
   justify-content: center;
   object-fit: fill;
   width: fit-content;
+  padding-top: 30px;
+}
+
+.favorite-link-color {
+  color: $star-blue
 }
 
 .nonprofit-img {
   object-fit: scale-down;
 }
+
+.card-account.favorite {
+  width:100% !important;
+}
+
+#carousel-inner-profile {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+  height: 325px;
+}
+
+#carousel-item-profile {
+  height:100%;
+
+  img {
+    height:65%;
+    object-fit: contain;
+    width:100% !important
+  }
+}
+
+#carousel-caption-profile {
+  h5, p {
+    color: $star-blue;
+  }
+}
+
 
 .previous {
   height: 387px;
@@ -120,36 +160,25 @@
   }
 }
 
-.card-account.favorite {
-  width:100% !important;
+.no-info {
+  color: #0278AE;
+  font-size: 16px;
+  letter-spacing: 5px;
+  text-align: right;
+  font-weight: 100;
+  line-height: 33px;
 }
 
-.card-account.upcoming {
-  height:100% !important;
-  margin-left: auto
+.no-info-previous {
+  margin-top: 41px;
+  padding: 53px;
 }
 
-
-#carousel-inner-profile {
-  position: relative;
-  width: 80%;
-  overflow: hidden;
-  margin: auto;
-  height: 325px;
+.no-info-favorite {
+  margin-top: 41px;
+  padding: 53px;
 }
 
-#carousel-item-profile {
-  height:100%;
-
-  img {
-    height:65%;
-    object-fit: contain;
-    width:100% !important
-  }
-}
-
-#carousel-caption-profile {
-  h5, p {
-    color: $star-blue;
-  }
+.no-info-upcoming {
+  padding: 51px;
 }
