@@ -4,17 +4,13 @@
   top: 0;
   text-decoration: none;
 }
-
 .sticky-top {
   position: sticky;
   top: 0;
 }
-
-
 #search_search_by_city {
   height: 35px;
 }
-
 .heart-icon {
   position: sticky;
   margin-bottom: 120px;
@@ -22,7 +18,6 @@
   size: 100px;
   color: black;
 }
-
 .no-search {
   input {
     display: none;
@@ -31,31 +26,25 @@
     display: none;
   }
 }
-
 .description {
   font-size:17px;
   text-align: justify;
 }
-
-
 .logo > img {
   border-radius: 8px;
   width: 270px;
   height: 200px;
 }
-
 .card p {
   margin-top: 10px;
   margin-left: 12px;
 }
-
 .carousel-item img {
   width: 400px;
   height: 300px;
   border-radius: 8px;
   object-fit: cover;
 }
-
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
@@ -64,7 +53,6 @@
     display: none;
   }
 }
-
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
   .cards {
@@ -74,7 +62,6 @@
     display: none;
   }
 }
-
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
   .cards {
