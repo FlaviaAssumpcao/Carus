@@ -23,7 +23,6 @@
   background-color: rgba(98, 196, 183, 0.5);
   border-radius: 30px;
   padding: 24px;
-  width: fit-content;
   h3 {
     color: $star-blue;
     text-align: center;
@@ -49,7 +48,7 @@
 
 .upcoming-scroll {
   height: 500px;
-  width: 420px;
+  width: inherit;
   overflow-y: scroll;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -68,7 +67,7 @@
 .org-name {
   font-weight: 600;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .date-time {
@@ -86,6 +85,7 @@
   align-items: center;
   justify-content: center;
   object-fit: fill;
+  width: fit-content;
 }
 
 .nonprofit-img {
@@ -94,7 +94,6 @@
 
 .previous {
   height: 387px;
-  grid-column: 1/ span 2;
   align-items: center;
   justify-content: center;
 }
