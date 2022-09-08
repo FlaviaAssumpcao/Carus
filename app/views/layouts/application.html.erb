@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Carus</title>
+    <title>Carus-Connecting people to charities</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%=favicon_link_tag%>
+    <meta name="description" content="Connecting people to charities.">
 
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="Carus" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.carus-charity.org/" />
+    <meta property="og:image" content="<%= image_tag "preview" %>" />
+    <meta property="og:description" content="Carus-connecting people to charities" />
+    <meta property="og:site_name" content="Carus" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
@@ -45,12 +54,6 @@
 
     <%= render "shared/footer" %>
 
-    <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
 
-    <% if notice.present? %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
   </body>
 </html>
