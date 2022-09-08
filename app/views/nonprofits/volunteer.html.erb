@@ -1,52 +1,56 @@
-<div class="container" style="margin-top: 25px;">
-  <div class="row" style="justify-content: space-evenly;">
-    <div class="col-4" style="width: 18%;">
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-lg-3">
         <ul class="sticky-top" style="list-style: none; font-size: 17px;">
           <%= link_to 'Clear filters', volunteer_nonprofits_path, class:"clean"%>
           <div>
             <% @time_categories.each do |time_category| %>
               <li>
-                <%= link_to time_category.name, time_nonprofits_path(time_category: time_category, city: params[:city]), class: "filter-btns #{time_category.id.to_s == params[:time_category] ? "filter-btns--active" : ""}" %>
+                <%= link_to time_category.name, volunteer_nonprofits_path(time_category: time_category, city: params[:city]), class: "filter-btns #{time_category.id.to_s == params[:time_category] ? "filter-btns--active" : ""}" %>
               </li>
             <% end %>
           </div>
         </ul>
     </div>
 
-    <div class="col-4">
+    <div class="col-12 col-lg-5">
       <%# create partial for the cards display since it is the same in goods and volunteer  %>
-      <div class="sticky-top" style="background-color: white; height: 130px; width: 550px;">
-        <div class="search-form" style="margin-left: 10px; color: grey; width: 300px; height:20px">
-          <%= simple_form_for :search, url: volunteer_nonprofits_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-            <%= f.input :filter_by_city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, selected: params[:city], include_blank: true %>
-            <%= f.input :time_category, as: :hidden, input_html: { value: params[:time_category], name: 'time_category' } %>
-            <%= f.submit "Submit", class: "btn btn-search" %>
+      <div class="sticky-top bg-white mb-4" style="">
+        <div class="search-form ms-2 fill" style="color: grey;">
+          <%= simple_form_for :search, url: volunteer_nonprofits_path, method: "GET", html: { class: 'form-inline d-flex' } do |f| %>
+            <%= f.input :filter_by_city, collection: Nonprofit.pluck(:city).uniq, input_html: { name: 'city' }, wrapper_html: { class: 'search-bar' }, selected: params[:city], prompt: "Filter by city", label: false %>
+            <%= f.input :time_category, label: false, input_html: { value: params[:time_category], name: 'time_category', class: "d-none" } %>
+            <%= f.submit "Submit", class: "btn btn-search ms-3 me-0" %>
           <% end %>
         </div>
       </div>
-
-      <div>
+      <div class="mt-5">
         <% @nonprofits.uniq.each do |nonprofit| %>
-          <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
-            <div class="card-product" style="margin-bottom: 30px; margin-top: 30px">
-            <div>
-              <%= carus_image(nonprofit.logo) %>
-            </div>
-            <div class="card-product-infos">
-              <h5><strong><%= nonprofit.name %></strong></h5>
-              <h6><%= nonprofit.city %></h6>
-              <p><%= nonprofit.brief_description %></p>
-              <i class="fa-regular fa-heart"></i>
-            </div>
-         </div>
-          <% end %>
-        <% end %>
-       </div>
+          <div class="position-relative">
+            <%= link_to nonprofit_path(nonprofit), target: "_blank" do %>
+              <div class="card-product" style="margin-bottom: 30px; margin-top: 30px">
+                <div>
+                  <%= carus_image(nonprofit.logo) %>
+                </div>
+                <div class="card-product-infos">
+                  <h5><strong><%= nonprofit.name %></strong></h5>
+                  <h6><%= nonprofit.city %></h6>
+                  <p><%= nonprofit.brief_description %></p>
+                </div>
+              </div>
+            <% end %>
 
+            <%= link_to favorites_path(nonprofit.id), data: { turbo_method: :post }, class: "position-absolute top-0 end-0 me-4 mt-2" do %>
+              <i class="fa-<%= nonprofit.favorites.find_by(user: current_user) ? 'solid' : 'regular' %> fa-heart" style="color: black"></i>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
     </div>
 
-    <div class="col-4">
-      <div id="map" style="height: 490px; width: 100%; border-radius: 8px; margin-top: 10px; margin-left: 130px"
+    <div class="col-12 col-lg-4">
+      <div id="map" style="height: 580px; border-radius: 8px; margin-top: 10px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
