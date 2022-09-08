@@ -1,9 +1,8 @@
 .new-container{
-  margin-left: 200px;
-  margin-right: 200px;
   min-height: calc(100vh - 172px);
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: 15px;
+  width: fit-content;
+  margin: auto;
 }
 
 .back-link {
@@ -11,6 +10,13 @@
   &:hover {
     color: black;
   }
+}
+
+  .border-booking {
+    border: 1px solid #62C4B7;
+    border-radius: 30px;
+    padding: 30px;
+    margin: 15px auto;
 }
 
 .flip-card-3D-wrapper {
@@ -104,4 +110,15 @@
     line-height: 19px;
     padding: 13px 50px 13px 50px;
   }
+}
+
+
+.logo-booking > img {
+  border-radius: 8px;
+  width: 150px;
+  height: 110px;
+}
+
+.form-select {
+  color: darkgrey;
 }
