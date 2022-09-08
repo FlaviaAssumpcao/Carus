@@ -14,12 +14,11 @@
 }
 
 .heart-icon {
-  position: sticky;
   margin-bottom: 120px;
-  margin-left: 360px;
   size: 100px;
   color: black;
   font-size: 40px;
+  padding-right: 10px;
 }
 
 .no-search {
@@ -101,7 +100,7 @@
 }
 
 .show-carousel-border-radius {
-  margin-top: 237px;
+  margin-top: 44px;
   *, *::before, *::after {
     border-radius: 8px;
   }
