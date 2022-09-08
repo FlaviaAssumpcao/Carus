@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :donations, only: [] do
+  resources :donations, only: [:destroy] do
     member do
       get :confirmation
     end
