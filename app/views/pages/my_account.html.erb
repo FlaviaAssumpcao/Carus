@@ -9,14 +9,17 @@
 
       <div class="card-account favorite">
         <h3 style="padding-top:40px">Favourites</h3>
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" style="width:100%; display:flex">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false"
+          style="width:100%; display:flex">
           <div class="carousel-inner" id="carousel-inner-profile">
 
             <div class="carousel-item active" id="carousel-item-profile">
               <% if @favorites.present? %>
                 <%= carus_image(@favorites.first.nonprofit.logo, { class: "d-block w-100" }) %>
                 <div class="carousel-caption d-none d-md-block" id="carousel-caption-profile">
-                  <h5 style="margin:0;"><%= link_to @favorites.first.nonprofit.name, nonprofit_path(@favorites.first.nonprofit), class: 'favorite-link-color'%></h5>
+                  <h5 style="margin:0;"><%= link_to @favorites.first.nonprofit.name,
+                    nonprofit_path(@favorites.first.nonprofit), class: 'favorite-link-color' %>
+                  </h5>
                   <p style="margin:0"><%= @favorites.first.nonprofit.city %></p>
                 </div>
               <% else %>
@@ -28,7 +31,10 @@
               <div class="carousel-item" id="carousel-item-profile">
                 <%= carus_image(favorite.nonprofit.logo, class: "d-block w-100") %>
                 <div class="carousel-caption d-none d-md-block" id="carousel-caption-profile">
-                  <h5 style="margin:0"><%= link_to favorite.nonprofit.name, nonprofit_path(favorite.nonprofit) %></h5>
+                  <h5 style="margin:0">
+                  <%= link_to favorite.nonprofit.name,
+                    nonprofit_path(favorite.nonprofit), class: 'favorite-link-color' %>
+                  </h5>
                   <p style="margin:0"><%= favorite.nonprofit.city %></p>
                 </div>
               </div>
@@ -91,7 +97,13 @@
                   </li>
               <% end %>
             <% else %>
-              <p class="no-info no-info-previous">You don't have any past donations yet.<br>Go ahead and book one!</p>
+              <p class="no-info no-info-previous">
+                You don't have any past donations yet.
+                <br>Go ahead and book a
+                <%= link_to "donation", goods_nonprofits_path, class: 'no-info-previous-action' %>
+                or a meeting for
+                <%= link_to "volunteering", volunteer_nonprofits_path, class: 'no-info-previous-action' %>!
+              </p>
             <% end %>
           </ul>
         </div>
