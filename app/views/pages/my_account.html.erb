@@ -64,8 +64,7 @@
                   <%= link_to donation_path(donation), data: { turbo_method: :delete } do %>
                     <i class="fa-regular fa-circle-xmark" style="color: black"></i>
                   <% end %>
-
-                <%= donation.nonprofit.name %></li>
+                  <%= donation.nonprofit.name %></li>
                 <li class="upcoming-description"><%= donation.nonprofit.address %></li>
                   <% if donation.goods_category.present? %>
                     <li class="upcoming-description">You will donate <strong><%= donation.goods_category.name %></strong> goods</li>
